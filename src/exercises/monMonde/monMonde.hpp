@@ -37,7 +37,7 @@ struct scene_exercise : base_scene_exercise
 
     // Mes objets
     vcl::mesh_drawable_hierarchy arbre;
-    vcl::mesh_drawable cactus;
+    //vcl::mesh_drawable cactus;
 
     //Le terrain
     GLuint terrain_tex;
@@ -46,5 +46,3 @@ struct scene_exercise : base_scene_exercise
 };
 
 #endif
-
-

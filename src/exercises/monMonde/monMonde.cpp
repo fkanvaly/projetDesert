@@ -20,7 +20,7 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& , scene_structure&
 
     //Creation des objets
     arbre=createArbre(); arbre.scaling=0.1;
-    cactus=createCactus(); cactus.uniform_parameter.scaling; cactus.uniform_parameter.translation={0,1,5};
+    //cactus=createCactus(); cactus.uniform_parameter.scaling; cactus.uniform_parameter.translation={0,1,5};
 
     // Setup initial camera mode and position
     scene.camera.camera_type = camera_control_spherical_coordinates;
@@ -40,12 +40,12 @@ void scene_exercise::frame_draw(std::map<std::string,GLuint>& shaders, scene_str
 
     // Dessin des objets
     arbre.draw(shaders["mesh"], scene.camera);
-    cactus.draw(shaders["mesh"], scene.camera);
+    //cactus.draw(shaders["mesh"], scene.camera);
 
     if(gui_scene.wireframe){
         arbre.draw(shaders["wireframe"], scene.camera);
         terrain.draw(shaders["wireframe"], scene.camera);
-        cactus.draw(shaders["mesh"], scene.camera);
+        //cactus.draw(shaders["mesh"], scene.camera);
     }
 
 }
@@ -108,4 +108,3 @@ void scene_exercise::set_gui()
 
 
 #endif
-
