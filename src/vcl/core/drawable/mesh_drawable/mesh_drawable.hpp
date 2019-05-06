@@ -18,7 +18,8 @@ public:
 
     // Attributes: uniform parameters and mesh_gpu (VAO/VBO)
     drawable_uniform uniform_parameter;
-    std::string texture_pos;
+    GLuint texture_pos;
+    std::string texture_obj;
     mesh_gpu data_gpu;
 
     // Constructors from mesh_gpu or directly from mesh

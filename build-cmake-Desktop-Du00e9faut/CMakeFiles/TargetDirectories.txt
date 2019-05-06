@@ -1,0 +1,3 @@
+/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/build-cmake-Desktop-Du00e9faut/CMakeFiles/rebuild_cache.dir
+/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/build-cmake-Desktop-Du00e9faut/CMakeFiles/pgm.dir
+/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/build-cmake-Desktop-Du00e9faut/CMakeFiles/edit_cache.dir

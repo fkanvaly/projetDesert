@@ -7,12 +7,20 @@
 struct gui_scene_structure
 {
     bool wireframe   = false;
+    bool skybox = false;
 
-    float height = 0.8f;
-    float scaling = 2.0f;
+    float height = 1.4f;
+    float scaling = 4.02f;
     int octave = 6;
-    float persistency = 0.1f;
+    float persistency = 0.16f;
+
+    bool cactus   = true;
+    bool rock   = true;
+    bool flower   = true;
+    bool texture   = true;
 };
+
+
 
 #include <string>
 #include <map>
