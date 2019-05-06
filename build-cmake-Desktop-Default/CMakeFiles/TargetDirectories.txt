@@ -1,0 +1,3 @@
+/Users/yahya/Documents/3D/projetDesert/build-cmake-Desktop-Default/CMakeFiles/rebuild_cache.dir
+/Users/yahya/Documents/3D/projetDesert/build-cmake-Desktop-Default/CMakeFiles/edit_cache.dir
+/Users/yahya/Documents/3D/projetDesert/build-cmake-Desktop-Default/CMakeFiles/pgm.dir

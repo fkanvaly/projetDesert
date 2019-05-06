@@ -33,16 +33,16 @@ vcl::mesh_drawable_hierarchy create_oiseau(){
     bird.add_element(body, "body", "root");
 
     //Head
-    bird.add_element(head, "head", "body",{0,0.5,1.7*r_body});
-    bird.add_element(eye, "eye_left", "head",{r_head*std::sin(3.14*0.25)*std::cos(3.14*0.25),r_head*std::cos(3.14*0.25),r_head*cos(3.14*0.25)*cos(3.14*0.25)});
-    bird.add_element(eye, "eye_right", "head",{-r_head*sin(3.14*0.25)*std::cos(3.14*0.25),r_head*std::cos(3.14*0.25),r_head*cos(3.14*0.25)*cos(3.14*0.25)});
-    bird.add_element(nose,"nose","head",{0,0,r_head*0.9});
+    bird.add_element(head, "head", "body",{0,0.5,1.7f*r_body});
+    //bird.add_element(eye, "eye_left", "head",{r_head*std::sin(3.14*0.25)*std::cos(3.14*0.25),r_head*std::cos(3.14*0.25),r_head*cos(3.14*0.25)*cos(3.14*0.25)});
+    //bird.add_element(eye, "eye_right", "head",{-r_head*sin(3.14*0.25)*std::cos(3.14*0.25),r_head*std::cos(3.14*0.25),r_head*cos(3.14*0.25)*cos(3.14*0.25)});
+    //bird.add_element(nose,"nose","head",{0,0,r_head*0.9});
     //Arm
-    bird.add_element(arm_top_left, "arm_top_left", "body",{0.5*r_body,0,-0.7});
-    bird.add_element(arm_bottom_left, "arm_bottom_left", "arm_top_left",{l_arm,0,0});
+    //bird.add_element(arm_top_left, "arm_top_left", "body",{0.5*r_body,0,-0.7});
+    //bird.add_element(arm_bottom_left, "arm_bottom_left", "arm_top_left",{l_arm,0,0});
 
-    bird.add_element(arm_top_right, "arm_top_right", "body",{-0.5*r_body,0,-0.7});
-    bird.add_element(arm_bottom_right, "arm_bottom_right", "arm_top_right",{-l_arm,0,0});
+    //bird.add_element(arm_top_right, "arm_top_right", "body",{-0.5*r_body,0,-0.7});
+    //bird.add_element(arm_bottom_right, "arm_bottom_right", "arm_top_right",{-l_arm,0,0});
 
     return bird;
 }
