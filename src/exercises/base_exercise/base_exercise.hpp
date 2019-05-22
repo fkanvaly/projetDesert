@@ -9,15 +9,34 @@ struct gui_scene_structure
     bool wireframe   = false;
     bool skybox = false;
 
-    float height = 1.4f;
-    float scaling = 4.02f;
+    //terrain
+    float height = 0.67f;
+    float scaling = 8.06f;
     int octave = 6;
     float persistency = 0.16f;
+
+    //eau
+    vcl::timer_interval eau_time;
+    float eau_height = 0.37f;
+    float eau_scaling = 3.8f;
+    int eau_octave = 6;
+    float eau_persistency = 0.0f;
 
     bool cactus   = true;
     bool rock   = true;
     bool flower   = true;
     bool texture   = true;
+
+    bool enable_sprite = true;
+    vcl::timer_event fire_timer;
+};
+
+struct fire_particle
+{
+    vcl::vec3 p;
+    vcl::vec3 v;
+    float t;
+    std::vector<float> size;
 };
 
 

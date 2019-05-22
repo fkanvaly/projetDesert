@@ -239,9 +239,22 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/cactus/cactus.cpp.s"
 	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/cactus/cactus.cpp -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/cactus/cactus.cpp.s
 
+CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.o: CMakeFiles/pgm.dir/flags.make
+CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.o"
+	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp
+
+CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.i"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp > CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.i
+
+CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.s"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.s
+
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.cpp.i: cmake_force
@@ -254,7 +267,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.i: cmake_force
@@ -265,9 +278,22 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.s"
 	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.s
 
+CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.o: CMakeFiles/pgm.dir/flags.make
+CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.o"
+	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp
+
+CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.i"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp > CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.i
+
+CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.s"
+	g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.s
+
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.cpp.i: cmake_force
@@ -280,7 +306,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/terrain/terrain.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/terrain/terrain.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/terrain/terrain.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/terrain/terrain.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/terrain/terrain.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/terrain/terrain.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/terrain/terrain.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/terrain/terrain.cpp.i: cmake_force
@@ -293,7 +319,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/helper_scene.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/helper_scene.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/helper_scene.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/helper_scene.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/helper_scene.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/helper_scene.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/helper_scene.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/helper_scene.cpp.i: cmake_force
@@ -306,7 +332,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/main.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/main.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/main.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/main.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/main.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/main.cpp.i: cmake_force
@@ -319,7 +345,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_drawable/curve_drawable.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_drawable/curve_drawable.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_drawable/curve_drawable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_drawable/curve_drawable.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_drawable/curve_drawable.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_drawable/curve_drawable.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_drawable/curve_drawable.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_drawable/curve_drawable.cpp.i: cmake_force
@@ -332,7 +358,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_dynamic_drawable/curve_dynamic_drawable.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_dynamic_drawable/curve_dynamic_drawable.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_dynamic_drawable/curve_dynamic_drawable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_dynamic_drawable/curve_dynamic_drawable.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_dynamic_drawable/curve_dynamic_drawable.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_dynamic_drawable/curve_dynamic_drawable.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_dynamic_drawable/curve_dynamic_drawable.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/curve_dynamic_drawable/curve_dynamic_drawable.cpp.i: cmake_force
@@ -345,7 +371,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/drawable_uniform/drawable_uniform.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/drawable_uniform/drawable_uniform.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/drawable_uniform/drawable_uniform.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/drawable_uniform/drawable_uniform.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/drawable_uniform/drawable_uniform.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/drawable_uniform/drawable_uniform.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/drawable_uniform/drawable_uniform.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/drawable_uniform/drawable_uniform.cpp.i: cmake_force
@@ -358,7 +384,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable/mesh_drawable.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable/mesh_drawable.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable/mesh_drawable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable/mesh_drawable.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable/mesh_drawable.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable/mesh_drawable.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable/mesh_drawable.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable/mesh_drawable.cpp.i: cmake_force
@@ -371,7 +397,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable_hierarchy/mesh_drawable_hierarchy.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable_hierarchy/mesh_drawable_hierarchy.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable_hierarchy/mesh_drawable_hierarchy.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable_hierarchy/mesh_drawable_hierarchy.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable_hierarchy/mesh_drawable_hierarchy.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable_hierarchy/mesh_drawable_hierarchy.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable_hierarchy/mesh_drawable_hierarchy.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/mesh_drawable_hierarchy/mesh_drawable_hierarchy.cpp.i: cmake_force
@@ -384,7 +410,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segment_drawable_immediate_mode/segment_drawable_immediate_mode.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segment_drawable_immediate_mode/segment_drawable_immediate_mode.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segment_drawable_immediate_mode/segment_drawable_immediate_mode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segment_drawable_immediate_mode/segment_drawable_immediate_mode.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segment_drawable_immediate_mode/segment_drawable_immediate_mode.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segment_drawable_immediate_mode/segment_drawable_immediate_mode.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segment_drawable_immediate_mode/segment_drawable_immediate_mode.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segment_drawable_immediate_mode/segment_drawable_immediate_mode.cpp.i: cmake_force
@@ -397,7 +423,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segments_drawable/segments_drawable.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segments_drawable/segments_drawable.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segments_drawable/segments_drawable.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segments_drawable/segments_drawable.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segments_drawable/segments_drawable.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segments_drawable/segments_drawable.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segments_drawable/segments_drawable.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/drawable/segments_drawable/segments_drawable.cpp.i: cmake_force
@@ -410,7 +436,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/file/file.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/file/file.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/file/file.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/file/file.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/file/file.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/file/file.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/file/file.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/file/file.cpp.i: cmake_force
@@ -423,7 +449,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/string/string.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/string/string.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/string/string.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/string/string.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/string/string.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/string/string.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/string/string.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/helper/string/string.cpp.i: cmake_force
@@ -436,7 +462,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat2/mat2.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat2/mat2.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat2/mat2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat2/mat2.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat2/mat2.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat2/mat2.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat2/mat2.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat2/mat2.cpp.i: cmake_force
@@ -449,7 +475,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat3/mat3.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat3/mat3.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat3/mat3.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat3/mat3.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat3/mat3.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat3/mat3.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat3/mat3.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat3/mat3.cpp.i: cmake_force
@@ -462,7 +488,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat4/mat4.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat4/mat4.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat4/mat4.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat4/mat4.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat4/mat4.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat4/mat4.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat4/mat4.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/mat/mat4/mat4.cpp.i: cmake_force
@@ -475,7 +501,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/numerics/numerics.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/numerics/numerics.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/numerics/numerics.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/numerics/numerics.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/numerics/numerics.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/numerics/numerics.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/numerics/numerics.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/numerics/numerics.cpp.i: cmake_force
@@ -488,7 +514,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/transformation/transformation.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/transformation/transformation.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/transformation/transformation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/transformation/transformation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/transformation/transformation.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/transformation/transformation.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/transformation/transformation.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/transformation/transformation.cpp.i: cmake_force
@@ -501,7 +527,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec2/vec2.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec2/vec2.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec2/vec2.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec2/vec2.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec2/vec2.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec2/vec2.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec2/vec2.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec2/vec2.cpp.i: cmake_force
@@ -514,7 +540,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec3/vec3.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec3/vec3.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec3/vec3.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec3/vec3.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec3/vec3.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec3/vec3.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec3/vec3.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec3/vec3.cpp.i: cmake_force
@@ -527,7 +553,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec4/vec4.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec4/vec4.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec4/vec4.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec4/vec4.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec4/vec4.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec4/vec4.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec4/vec4.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/math/vec/vec4/vec4.cpp.i: cmake_force
@@ -540,7 +566,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/curve_gpu/curve_gpu.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/curve_gpu/curve_gpu.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/curve_gpu/curve_gpu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/curve_gpu/curve_gpu.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/curve_gpu/curve_gpu.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/curve_gpu/curve_gpu.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/curve_gpu/curve_gpu.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/curve_gpu/curve_gpu.cpp.i: cmake_force
@@ -553,7 +579,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/debug/opengl_debug.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/debug/opengl_debug.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/debug/opengl_debug.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/debug/opengl_debug.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/debug/opengl_debug.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/debug/opengl_debug.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/debug/opengl_debug.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/debug/opengl_debug.cpp.i: cmake_force
@@ -566,7 +592,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/mesh_gpu/mesh_gpu.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/mesh_gpu/mesh_gpu.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/mesh_gpu/mesh_gpu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/mesh_gpu/mesh_gpu.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/mesh_gpu/mesh_gpu.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/mesh_gpu/mesh_gpu.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/mesh_gpu/mesh_gpu.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/mesh_gpu/mesh_gpu.cpp.i: cmake_force
@@ -579,7 +605,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/segments_gpu/segments_gpu.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/segments_gpu/segments_gpu.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/segments_gpu/segments_gpu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/segments_gpu/segments_gpu.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/segments_gpu/segments_gpu.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/segments_gpu/segments_gpu.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/segments_gpu/segments_gpu.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/segments_gpu/segments_gpu.cpp.i: cmake_force
@@ -592,7 +618,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/shader/shader.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/shader/shader.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/shader/shader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/shader/shader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/shader/shader.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/shader/shader.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/shader/shader.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/shader/shader.cpp.i: cmake_force
@@ -605,7 +631,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/image/image.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/image/image.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/image/image.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/image/image.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/image/image.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/image/image.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/image/image.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/image/image.cpp.i: cmake_force
@@ -618,7 +644,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/texture_gpu/texture_gpu.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/texture_gpu/texture_gpu.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/texture_gpu/texture_gpu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/texture_gpu/texture_gpu.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/texture_gpu/texture_gpu.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/texture_gpu/texture_gpu.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/texture_gpu/texture_gpu.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/texture/texture_gpu/texture_gpu.cpp.i: cmake_force
@@ -631,7 +657,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/uniform/uniform.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/uniform/uniform.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/uniform/uniform.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/uniform/uniform.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/uniform/uniform.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/uniform/uniform.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/uniform/uniform.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/opengl/uniform/uniform.cpp.i: cmake_force
@@ -644,7 +670,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera/camera.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera/camera.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera/camera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera/camera.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera/camera.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera/camera.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera/camera.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera/camera.cpp.i: cmake_force
@@ -657,7 +683,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera_control_glfw/camera_control_glfw.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera_control_glfw/camera_control_glfw.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera_control_glfw/camera_control_glfw.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera_control_glfw/camera_control_glfw.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera_control_glfw/camera_control_glfw.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera_control_glfw/camera_control_glfw.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera_control_glfw/camera_control_glfw.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/camera_control_glfw/camera_control_glfw.cpp.i: cmake_force
@@ -670,7 +696,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/info/picking_info.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/info/picking_info.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/info/picking_info.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/info/picking_info.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/info/picking_info.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/info/picking_info.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/info/picking_info.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/info/picking_info.cpp.i: cmake_force
@@ -683,7 +709,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/primitives/picking_primitives.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/primitives/picking_primitives.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/primitives/picking_primitives.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/primitives/picking_primitives.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/primitives/picking_primitives.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/primitives/picking_primitives.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/primitives/picking_primitives.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/primitives/picking_primitives.cpp.i: cmake_force
@@ -696,7 +722,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/ray/picking_ray.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/ray/picking_ray.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/ray/picking_ray.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/ray/picking_ray.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/ray/picking_ray.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/ray/picking_ray.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/ray/picking_ray.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/picking/ray/picking_ray.cpp.i: cmake_force
@@ -709,7 +735,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/screen_motion/screen_motion.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/screen_motion/screen_motion.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/screen_motion/screen_motion.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/screen_motion/screen_motion.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/screen_motion/screen_motion.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/screen_motion/screen_motion.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/screen_motion/screen_motion.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/screen_motion/screen_motion.cpp.i: cmake_force
@@ -722,7 +748,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_period/time_period.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_period/time_period.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_period/time_period.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_period/time_period.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_period/time_period.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_period/time_period.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_period/time_period.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_period/time_period.cpp.i: cmake_force
@@ -735,7 +761,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_slider/time_slider.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_slider/time_slider.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_slider/time_slider.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_slider/time_slider.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_slider/time_slider.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_slider/time_slider.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_slider/time_slider.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/scene/time_slider/time_slider.cpp.i: cmake_force
@@ -748,7 +774,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_loader/obj/obj.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_loader/obj/obj.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_loader/obj/obj.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_loader/obj/obj.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_loader/obj/obj.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_loader/obj/obj.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_loader/obj/obj.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_loader/obj/obj.cpp.i: cmake_force
@@ -761,7 +787,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_primitive/mesh_primitive.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_primitive/mesh_primitive.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_primitive/mesh_primitive.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_primitive/mesh_primitive.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_primitive/mesh_primitive.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_primitive/mesh_primitive.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_primitive/mesh_primitive.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_primitive/mesh_primitive.cpp.i: cmake_force
@@ -774,7 +800,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_structure/mesh.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_structure/mesh.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_structure/mesh.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_structure/mesh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_structure/mesh.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_structure/mesh.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_structure/mesh.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/shape/mesh/mesh_structure/mesh.cpp.i: cmake_force
@@ -787,7 +813,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/fps_counter/fps_counter.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/fps_counter/fps_counter.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/fps_counter/fps_counter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/fps_counter/fps_counter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/fps_counter/fps_counter.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/fps_counter/fps_counter.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/fps_counter/fps_counter.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/fps_counter/fps_counter.cpp.i: cmake_force
@@ -800,7 +826,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/window/window.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/window/window.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/window/window.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/window/window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/window/window.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/window/window.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/window/window.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/glfw/window/window.cpp.i: cmake_force
@@ -813,7 +839,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/imgui/imgui.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/imgui/imgui.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/imgui/imgui.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/imgui/imgui.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/imgui/imgui.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/imgui/imgui.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/imgui/imgui.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/imgui/imgui.cpp.i: cmake_force
@@ -826,7 +852,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/lodepng/lodepng.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/lodepng/lodepng.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/lodepng/lodepng.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/lodepng/lodepng.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/lodepng/lodepng.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/lodepng/lodepng.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/lodepng/lodepng.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/lodepng/lodepng.cpp.i: cmake_force
@@ -839,7 +865,7 @@ CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/s
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/perlin/perlin.cpp.o: CMakeFiles/pgm.dir/flags.make
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/perlin/perlin.cpp.o: /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/perlin/perlin.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/perlin/perlin.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/perlin/perlin.cpp.o"
 	g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/perlin/perlin.cpp.o -c /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/perlin/perlin.cpp
 
 CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/external_lib/perlin/perlin.cpp.i: cmake_force
@@ -866,8 +892,10 @@ pgm_OBJECTS = \
 "CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/monMonde/monMonde.cpp.o" \
 "CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/arbre/arbre.cpp.o" \
 "CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/cactus/cactus.cpp.o" \
+"CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.o" \
 "CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.cpp.o" \
 "CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.o" \
+"CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.o" \
 "CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.cpp.o" \
 "CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/terrain/terrain.cpp.o" \
 "CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/helper_scene.cpp.o" \
@@ -931,8 +959,10 @@ pgm: CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_des
 pgm: CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/monMonde/monMonde.cpp.o
 pgm: CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/arbre/arbre.cpp.o
 pgm: CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/cactus/cactus.cpp.o
+pgm: CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.o
 pgm: CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.cpp.o
 pgm: CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.o
+pgm: CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.o
 pgm: CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.cpp.o
 pgm: CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/terrain/terrain.cpp.o
 pgm: CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/helper_scene.cpp.o
@@ -981,7 +1011,7 @@ pgm: CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_des
 pgm: CMakeFiles/pgm.dir/build.make
 pgm: /usr/lib/x86_64-linux-gnu/libglfw.so.3.2
 pgm: CMakeFiles/pgm.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Linking CXX executable pgm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Linking CXX executable pgm"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pgm.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

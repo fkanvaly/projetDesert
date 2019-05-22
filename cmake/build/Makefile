@@ -501,6 +501,33 @@ home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_
 	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/cactus/cactus.cpp.s
 .PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/cactus/cactus.cpp.s
 
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.o: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.o
+
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.o
+
+# target to build an object file
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.o:
+	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.o
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.o
+
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.i: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.i
+
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.i
+
+# target to preprocess a source file
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.i:
+	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.i
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.i
+
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.s: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.s
+
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.s
+
+# target to generate assembly for a file
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.s:
+	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.s
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp.s
+
 home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.o: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.cpp.o
 
 .PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.o
@@ -554,6 +581,33 @@ home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_
 home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.s:
 	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.s
 .PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.s
+
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.o: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.o
+
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.o
+
+# target to build an object file
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.o:
+	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.o
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.o
+
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.i: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.i
+
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.i
+
+# target to preprocess a source file
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.i:
+	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.i
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.i
+
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.s: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.s
+
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.s
+
+# target to generate assembly for a file
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.s:
+	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.s
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.s
 
 home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.o: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.cpp.o
 
@@ -1821,12 +1875,18 @@ help:
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/cactus/cactus.o"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/cactus/cactus.i"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/cactus/cactus.s"
+	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.o"
+	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.i"
+	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.s"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.o"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.i"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.s"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.o"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.i"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.s"
+	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.o"
+	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.i"
+	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.s"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.o"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.i"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.s"

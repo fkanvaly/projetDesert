@@ -70,7 +70,7 @@ mesh_drawable load_obj(const char* objfile, const char* mtlfile)
         {
             //std::cout<< "vn read"<< std::endl;
             std::istringstream s (line.substr(3));
-            vcl::vec3 vn; s >> vn.x; s >> vn.y; s >> vn.z;
+            vcl::vec3 vn; s >> vn.x; s >> vn.z; s >> vn.y;
 //            std::cout<< "vn read "<< vn << std::endl;
             //obj.normal.push_back(vn);
         }
@@ -87,9 +87,9 @@ mesh_drawable load_obj(const char* objfile, const char* mtlfile)
 //            std::cout<< "mtl read: "<<line.substr(7)<< std::endl;
             MtlName =line.substr(7);
 
-//            std::cout<< "mtl Ka: "<<Mtl["Ka"]<< std::endl;
-//            std::cout<< "mtl Kd: "<<Mtl["Kd"]<< std::endl;
-//            std::cout<< "mtl Ks: "<<Mtl["Ks"]<< std::endl;
+//            std::cout<< "mtl Ka: "<<Mtl[MtlName]["Ka"]<< std::endl;
+//            std::cout<< "mtl Kd: "<<Mtl[MtlName]["Kd"]<< std::endl;
+//            std::cout<< "mtl Ks: "<<Mtl[MtlName]["Ks"]<< std::endl;
 
 
         }
@@ -292,7 +292,7 @@ std::map<std::string,std::map<std::string,vec3>>  load_mtl(const char* filename)
     }
 
     std::string line;
-//    std::cout<< "start reading materials"<< std::endl;
+    std::cout<< "start reading materials"<< std::endl;
     while (getline(in, line))
     {
         if (line.substr(0,7) == "newmtl ")
@@ -307,21 +307,21 @@ std::map<std::string,std::map<std::string,vec3>>  load_mtl(const char* filename)
         {
             std::istringstream s (line.substr(3));
             vcl::vec3 Ka; s >> Ka.x; s >> Ka.y; s >> Ka.z;
-//            std::cout<< currentName <<" Ka read "<< Ka << std::endl;
+            std::cout<< currentName <<" Ka read "<< Ka << std::endl;
             material[currentName]["Ka"]=Ka;
         }
         if (line.substr(0,3) == "Kd ")
         {
             std::istringstream s (line.substr(3));
             vcl::vec3 Kd; s >> Kd.x; s >> Kd.y; s >> Kd.z;
-//            std::cout<< currentName <<" Kd read "<< Kd << std::endl;
+            std::cout<< currentName <<" Kd read "<< Kd << std::endl;
             material[currentName]["Kd"]=Kd;
         }
         if (line.substr(0,3) == "Ks ")
         {
             std::istringstream s (line.substr(3));
             vcl::vec3 Ks; s >> Ks.x; s >> Ks.y; s >> Ks.z;
-//            std::cout<< currentName << " Ks read "<< Ks << std::endl;
+            std::cout<< currentName << " Ks read "<< Ks << std::endl;
             material[currentName]["Ks"]=Ks;
         }
     }
@@ -354,6 +354,8 @@ std::string load_text(const char* filename)
 
     return texture_pos;
 }
+
+
 
 
 

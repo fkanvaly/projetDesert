@@ -18,3 +18,17 @@ vcl::mesh_drawable_hierarchy createTree(){
     arbre.scaling=0.5;
     return arbre;
 }
+
+vcl::mesh_drawable_hierarchy createTree2(){
+    vcl::mesh_drawable_hierarchy arbre;
+
+    vcl::mesh_drawable tronc= load_obj("data/arbre/tronc2.obj","data/arbre/tronc2.mtl");
+    tronc.uniform_parameter.shading.specular=0;
+    vcl::mesh_drawable feuille= load_obj("data/arbre/feuille2.obj","data/arbre/feuille2.mtl");
+    feuille.uniform_parameter.shading.specular=0;
+    arbre.add_element(tronc,"tronc","root");
+    arbre.add_element(feuille,"feuille","tronc",{0,0,0});
+
+    arbre.scaling=3;
+    return arbre;
+}

@@ -20,11 +20,11 @@ vcl::mesh_drawable_hierarchy createTente(){
     caillou_feu.uniform_parameter.color={0.8,0.70,0.80};
 
     tente.add_element(drap,"drap","root");
-    tente.add_element(support,"support","tronc",{0.0,0.0,0.0});
-    tente.add_element(tapis,"tapis","tronc",{0.0,0.0,0.0});
-    tente.add_element(corde,"corde","tronc",{0.0,0.0,0.0});
-    tente.add_element(feu,"feu","tronc",{0.0,0.0,0.0});
-    tente.add_element(caillou_feu,"caillou_feu","tronc",{0.0,0.0,0.0});
+    tente.add_element(support,"support","drap",{0.0,0.0,0.0});
+    tente.add_element(tapis,"tapis","drap",{0.0,0.0,0.0});
+    tente.add_element(corde,"corde","drap",{0.0,0.0,0.0});
+    tente.add_element(feu,"feu","drap",{0.0,0.0,0.0});
+    tente.add_element(caillou_feu,"caillou_feu","drap",{0.0,0.0,0.0});
 
     return tente;
 }

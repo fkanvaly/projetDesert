@@ -37,11 +37,11 @@ vcl::mesh create_terrain(const gui_scene_structure& gui_scene)
             const float x = 70*(u-0.5f);
             const float y = 100*(v-0.5f);
 
-            float norme= sqrt(pow(x,2)+pow(std::max(y+10.0,0.0),2));
+
             //float radious = 8;
             float z = evaluate_terrain_z(u,v, gui_scene);
 
-            const float c = 0.4f+0.8f*noise;
+
 
             // Compute coordinates
             terrain.position[kv+N*ku] = {x,y,z};
@@ -81,8 +81,8 @@ float evaluate_terrain_z(float u, float v, const gui_scene_structure& gui_scene)
     const float height = gui_scene.height;
 
     //Norme
-    const float x = 50*(u-0.5f);
-    const float y = 40*(v-0.5f);
+    const float x = 70*(u-0.5f);
+    const float y = 100*(v-0.5f);
     const float norm= sqrt(pow(x,2)+pow(std::max(y+10.0,0.0),2));
 
     const std::vector<vcl::vec2> pi = {{0,0}, {0.5f,0.5f}, {0.2f,0.7f}, {0.8f,0.7f},{0.4f,0.8f},{0.6f,0.4f},{0.2f,0.7f}, {0.8f,0.7f},{0.4f,0.8f}};
@@ -108,7 +108,47 @@ float evaluate_terrain_z(float u, float v, const gui_scene_structure& gui_scene)
     d=(d>1)?1:d;
     if(d!=0) return 1.2*z*d;
 
-    return -exp(-pow(0.5*norm,4));
+    return -exp(-pow(0.5*pow(norm,2),2));
+
+}
+
+float evaluate_terrain2_z(float x, float y, const gui_scene_structure& gui_scene)
+{
+    // get gui parameters
+    const float scaling = gui_scene.scaling;
+    const int octave = gui_scene.octave;
+    const float persistency = gui_scene.persistency;
+    const float height = gui_scene.height;
+
+    //Norme
+    const float u = (x/70)+0.5;
+    const float v = (y/100)+0.5;
+    const float norm= sqrt(pow(x,2)+pow(std::max(y+10.0,0.0),2));
+
+    const std::vector<vcl::vec2> pi = {{0,0}, {0.5f,0.5f}, {0.2f,0.7f}, {0.8f,0.7f},{0.4f,0.8f},{0.6f,0.4f},{0.2f,0.7f}, {0.8f,0.7f},{0.4f,0.8f}};
+    const std::vector<float> hi = {3.0f, -1.5f, 1.0f, 2.0f, 1.5f,1.0f,3.0f, -1.5f, 1.0f};
+    const std::vector<float> sigma_i = {0.5f, 0.15f, 0.2f, 0.2f, 0.16f, 0.4f,0.2f, 0.2f, 0.16f};
+
+    const size_t N = pi.size();
+    float z = 0.0f;
+    for(size_t k=0; k<N; ++k)
+    {
+        const float u0 = pi[k].x;
+        const float v0 = pi[k].y;
+        const float d2 = (u-u0)*(u-u0)+(v-v0)*(v-v0);
+        z += hi[k] * std::exp( - d2/sigma_i[k]/sigma_i[k] );
+
+        z += 0.2f*vcl::perlin(scaling*u, scaling*v, octave, persistency);
+
+    }
+    z=z*height;
+
+    float d= std::max(norm-radious,0.0f)/1.5;
+    d=1-exp(-pow(d,4));
+    d=(d>1)?1:d;
+    if(d!=0) return 1.2*z*d;
+
+    return -exp(-pow(0.5*pow(norm,2),2));
 
 }
 
