@@ -15,6 +15,8 @@ struct animal_setting{
     vcl::segment_drawable_immediate_mode segment_drawer;   // used to draw segments between keyframe samples
     vcl::curve_dynamic_drawable trajectory;                // Draw the trajectory of the moving point as a curve
 
+    unsigned int N;
+
     // Store the index of a selected sphere
     int picked_object;
 
@@ -25,11 +27,12 @@ vcl::mesh_drawable_hierarchy create_oiseau();
 vcl::mesh_drawable_hierarchy create_goat();
 vcl::mesh_drawable create_sprite();
 
-animal_setting init_birdSet(const float R);
+animal_setting init_birdSet(gui_scene_structure gui, const float R);
 animal_setting init_goatSet(const vcl::vec3 p, gui_scene_structure& gui);
 animal_setting init_sprite();
 
 std::vector<vcl::vec3> circle_path(unsigned int N, const float R, float height);
+std::vector<vcl::vec3> bird_path(gui_scene_structure gui, unsigned int N, const float R, float height);
 std::vector<vcl::vec3> goat_path(unsigned int N, const float R , vcl::vec3 p, gui_scene_structure& gui);
 std::vector<vcl::vec3> sprite_path(unsigned int N, vcl::vec3 p);
 

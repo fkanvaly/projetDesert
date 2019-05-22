@@ -87,12 +87,11 @@ vcl::mesh_drawable create_sprite(){
 
 //INIT
 
-animal_setting init_birdSet(const float R){
+animal_setting init_birdSet(gui_scene_structure gui, const float R){
     animal_setting bird_set;
-    unsigned int N=100;
-    //bird_set.keyframe_position = circle_path(N, 8.0, 5.0);
-    bird_set.keyframe_position = sprite_path(N, {0,0,0});
-    bird_set.keyframe_time = create_keyTime(N);
+    bird_set.N=100;
+    bird_set.keyframe_position = bird_path(gui, bird_set.N, 8.0, 5.0);
+    bird_set.keyframe_time = create_keyTime(bird_set.N);
 
     // Set timer bounds
     //  To ease spline interpolation of a closed curve time \in [t_1,t_{N-2}]
@@ -116,16 +115,16 @@ animal_setting init_birdSet(const float R){
 
     bird_set.picked_object=-1;
 
-    bird_set.animal_timer.scale=2.3;
+    bird_set.animal_timer.scale=1;
 
     return bird_set;
 }
 
 animal_setting init_goatSet(const vcl::vec3 p, gui_scene_structure& gui){
     animal_setting goat_set;
-    unsigned int N=100;
-    goat_set.keyframe_position = goat_path(N, 8.0, p, gui);
-    goat_set.keyframe_time = create_keyTime(N);
+    goat_set.N=100;
+    goat_set.keyframe_position = goat_path(goat_set.N, 8.0, p, gui);
+    goat_set.keyframe_time = create_keyTime(goat_set.N);
 
     // Set timer bounds
     //  To ease spline interpolation of a closed curve time \in [t_1,t_{N-2}]
@@ -153,41 +152,6 @@ animal_setting init_goatSet(const vcl::vec3 p, gui_scene_structure& gui){
 
     return goat_set;
 }
-
-animal_setting init_sprite(){
-    animal_setting sprite_set;
-    unsigned int N=100;
-    sprite_set.keyframe_position = sprite_path(N, {0,0,0});
-    sprite_set.keyframe_time = create_keyTime(N);
-
-    // Set timer bounds
-    //  To ease spline interpolation of a closed curve time \in [t_1,t_{N-2}]
-    sprite_set.animal_timer.t_min = sprite_set.keyframe_time[1];
-    sprite_set.animal_timer.t_max = sprite_set.keyframe_time[sprite_set.keyframe_time.size()-2];
-    sprite_set.animal_timer.t = sprite_set.animal_timer.t_min;
-
-    // Prepare the visual elements
-    sprite_set.surface = vcl::mesh_primitive_sphere();
-    sprite_set.surface.uniform_parameter.color   = {0,0,1};
-    sprite_set.surface.uniform_parameter.scaling = 0.08f;
-
-    sprite_set.sphere = vcl::mesh_primitive_sphere();
-    sprite_set.sphere.uniform_parameter.color = {1,1,1};
-    sprite_set.sphere.uniform_parameter.scaling = 0.05f;
-
-    sprite_set.segment_drawer.init();
-
-    sprite_set.trajectory = vcl::curve_dynamic_drawable(100); // number of steps stroed in the trajectory
-    sprite_set.trajectory.uniform_parameter.color = {0,0,1};
-
-    sprite_set.picked_object=-1;
-
-    sprite_set.animal_timer.scale=2.3;
-
-    return sprite_set;
-}
-
-
 
 
 //SOME PATH
@@ -220,20 +184,67 @@ std::vector<vcl::vec3> goat_path(unsigned int N, const float R, vcl::vec3 p,gui_
     return path;
 }
 
-
-std::vector<vcl::vec3> sprite_path(unsigned int N, vcl::vec3 p){
+std::vector<vcl::vec3> bird_path(gui_scene_structure gui_scene, unsigned int N, const float R, float height){
     std::vector<vcl::vec3> path;
-    float angle=0, toAdd=20*M_PI/(N-1) , dz=0.2 , R=0, dr=0.1 , height=0.0f;
-    for (int i=0; i<N+2 ; i++) {
-        const float x =p.x + R*std::cos(angle);
-        const float y =p.y + R*std::sin(angle);
-        const float z =height;
-        path.push_back({x,y,z});
+
+    //const float scaling = gui_scene.eau_scaling;
+    const float scaling = gui_scene.path_scaling;
+    const int octave = gui_scene.path_octave;
+    const float persistency = gui_scene.path_persistency;
+    const float h = gui_scene.path_height;
+
+    // Evaluate Perlin noise
+
+
+    //
+    float angle=0, toAdd=4*M_PI/(N-1);
+    for (int i=0; i<N/4 ; i++) {
+        vcl::vec3 p = {R*std::cos(angle),R*std::sin(angle),height};
+
+        const float noise = vcl::perlin(scaling*p.x, scaling*p.y, octave, persistency);
+        p.z=p.z+noise*h;
+
+        path.push_back(p);
         angle+=toAdd;
-        R+=dr;
-        height+=dz;
     }
+
+    vcl::vec3 p00 = path[path.size()-1];
+    float dy=5.0f;
+    for (int i=0; i<N/4 ; i++) {
+        p00 = vcl::vec3{p00.x,p00.y,height} + vcl::vec3(0,-dy,0);
+
+        const float noise = vcl::perlin(scaling*p00.x, scaling*p00.y, octave, persistency);
+        p00.z=p00.z+noise*h;
+
+        path.push_back(p00);
+    }
+
+    for (int i=0; i<N/4 ; i++) {
+        vcl::vec3 p = {R*std::cos(angle), p00.y + R*std::sin(angle),height};
+
+        const float noise = vcl::perlin(scaling*p.x, scaling*p.y, octave, persistency);
+        p.z=p.z+noise*h;
+
+        path.push_back(p);
+        angle+=toAdd;
+    }
+
+    p00 = path[path.size()-1];
+    for (int i=0; i<N/4-1 ; i++) {
+        p00 = vcl::vec3{p00.x,p00.y,height} + vcl::vec3(0,dy,0);
+
+        const float noise = vcl::perlin(scaling*p00.x, scaling*p00.y, octave, persistency);
+        p00.z=p00.z+noise*h;
+
+        path.push_back(p00);
+    }
+
+    path.push_back(path[0]);path.push_back(path[1]);
+
+
 
     return path;
 }
+
+
 

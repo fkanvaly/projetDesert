@@ -43,13 +43,13 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& , scene_structure&
     //Creation des objets********************************************************************************************************
 
     //statue
-    statue=load_obj("data/statue/statue.obj");
-    statue.uniform_parameter.color={0.56,0.40,0.16};
-    statue.uniform_parameter.shading.specular=0;
-    statue.uniform_parameter.shading.ambiant=0.8;
-    statue.uniform_parameter.translation={-24,20,10};
-    statue.uniform_parameter.scaling=0.04;
-    statue.uniform_parameter.rotation=rotation_from_axis_angle_mat3({0,1,0}, 3.14/3.5);
+//    statue=load_obj("data/statue/statue.obj");
+//    statue.uniform_parameter.color={0.56,0.40,0.16};
+//    statue.uniform_parameter.shading.specular=0;
+//    statue.uniform_parameter.shading.ambiant=0.8;
+//    statue.uniform_parameter.translation={-24,20,10};
+//    statue.uniform_parameter.scaling=0.04;
+//    statue.uniform_parameter.rotation=rotation_from_axis_angle_mat3({0,1,0}, 3.14/3.5);
 
     //maison
     maison=load_obj("data/maison/maison.obj","data/maison/maison.mtl");
@@ -68,11 +68,28 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& , scene_structure&
     update_tree2_position();
 
     //Oiseau
-    oiseau = create_oiseau();
-    oiseau.rotation("body")= rotation_from_axis_angle_mat3({1,0,0}, 3.14f*0.5);
-    oiseau.translation("body")={0,0,2};
-    oiseau.scaling=0.5f;
-    birdSet= init_birdSet(8.0f);
+    birds.resize(N_bird);
+    birdSet.resize(N_bird);
+
+    birdP_init.resize(N_bird);
+
+    bird_R={8.0,4.0};
+
+    for (int k=0; k<N_bird; ++k) {
+        birds[k] = create_oiseau();
+        birds[k].rotation("body")= rotation_from_axis_angle_mat3({1,0,0}, 3.14f*0.5);
+        birds[k].translation("body")={0,0,2};
+        birds[k].scaling=0.5f;
+
+        birdSet[k]= init_birdSet(gui_scene, 8.0f);
+        birdSet[k].N=20;
+
+        birdP_init[k]={0,0,0};
+
+        update_path(birdSet[k], gui_scene,bird_R[k]);
+    }
+
+
 
     goat = create_goat();
     goatSet = init_goatSet({20,20,0},gui_scene);
@@ -116,9 +133,9 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& , scene_structure&
     pot.uniform_parameter.scaling=0.4;
     pot.uniform_parameter.translation=pot_position;
     //fire
-    //setup_fire(pot_position);
-    sprite=create_sprite();
-    spriteSet = init_sprite();
+    setup_sprite(pot_position);
+    //sprite=create_sprite();
+    //spriteSet = init_sprite();
     //sauce
     sauce= mesh_primitive_disc(0.2);
     sauce.uniform_parameter.color={0.8, 0.2, 0.1};
@@ -142,6 +159,7 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& , scene_structure&
     scene.camera.camera_type = camera_control_spherical_coordinates;
     scene.camera.scale = 10.0f;
     scene.camera.apply_rotation(0,0,0,1.2f);
+
 }
 
 
@@ -156,10 +174,7 @@ void scene_exercise::frame_draw(std::map<std::string,GLuint>& shaders, scene_str
 
     displayTerrain(shaders,scene);
 
-    displayEau(shaders,scene);
-
     displayTree(shaders,scene);
-
 
     displaySkybox(shaders,scene);
 
@@ -170,17 +185,17 @@ void scene_exercise::frame_draw(std::map<std::string,GLuint>& shaders, scene_str
     displayOiseau(oiseau, birdSet, shaders,scene);
     displayGoat(goat, goatSet, shaders,scene);
 
-//    displayEau(shaders,scene);
 
     //Dessin des objets simple
-    statue.draw(shaders["mesh"], scene.camera);
+    // ////******a decommenter****////
+    //statue.draw(shaders["mesh"], scene.camera);
 
     displayMaison(shaders,scene);
     tente.draw(shaders["mesh"], scene.camera);
     chameau.draw(shaders["mesh"], scene.camera);
     pot.draw(shaders["mesh"], scene.camera);
     sauce.draw(shaders["mesh"], scene.camera);
-    displaySprite(sprite, spriteSet, shaders,scene);
+    displaySprite(shaders,scene);
 
     displayArbreMort(shaders,scene);
 
@@ -188,9 +203,10 @@ void scene_exercise::frame_draw(std::map<std::string,GLuint>& shaders, scene_str
     raccord.draw(shaders["mesh"], scene.camera);
 
 
-
-    displayFlower(shaders,scene);
     displayCactus(shaders,scene);
+    displayFlower(shaders,scene);
+    displayEau(shaders,scene);
+
 
 
 
@@ -199,39 +215,30 @@ void scene_exercise::frame_draw(std::map<std::string,GLuint>& shaders, scene_str
 /************************************
 *             UPDATER               *
 ************************************/
-void scene_exercise::setup_fire(vec3 p)
+void scene_exercise::setup_sprite(vec3 p)
 {
-
     sprite = vcl::mesh_drawable(vcl::mesh_primitive_quad({-1,1,0},{-1,-1,0},{1,-1,0},{1,1,0}));
     sprite.uniform_parameter.scaling = 5.0f;
 
     // The sprite texture .png file with alpha channel used as transparency parameter
     sprite.texture_pos = texture_gpu(image_load_png("data/sprite_smoke/smoke.png"));
-    gui_scene.fire_timer.periodic_event_time_step=1;
+    gui_scene.fire_timer.periodic_event_time_step=0.5;
 
 
 
     // Set initial position of several particles
-    size_t N_particles=40;
-    for(size_t k=0; k<N_particles; ++k)
-    {
-        fire_particle particle;
+    fire_particle particle;
+    particle.p = p;
+    particles.push_back(particle);
+}
 
-        const float h = distrib(generator);
-        const float r = std::sqrt(h);
+void scene_exercise::update_path(animal_setting& birdSet , gui_scene_structure& gui, const float R)
+{
+    birdSet.keyframe_position=bird_path(gui, birdSet.N, R, 5.0);
+    birdSet.keyframe_time = create_keyTime(birdSet.N);
 
-        const float y = 2*h+0.5f;
-        const float x = r*(distrib(generator)*2-1);
-        const float z = r*(distrib(generator)*2-1);
-
-        particle.p = p;
-        particle.size.push_back(1.0f);
-        particles.push_back(particle);
-    }
-
-
-
-
+    birdSet.animal_timer.t_min = birdSet.keyframe_time[1];
+    birdSet.animal_timer.t_max = birdSet.keyframe_time[birdSet.keyframe_time.size()-2];
 }
 
 void scene_exercise::update_terrain()
@@ -249,11 +256,57 @@ void scene_exercise::update_terrain()
 void scene_exercise::update_eau()
 {
     // Clear memory in case of pre-existing terrain
-    eau.data_gpu.clear();
 
     // Create visual terrain surface
-    eau = create_eau(gui_scene);
-    eau.uniform_parameter.color={0,0,1};
+    const size_t N=40;
+    std::vector<vec3> newEauPos ; std::vector<index3> newEauCon;
+    newEauPos.resize(N*N);
+
+    for(size_t ku=0; ku<N; ++ku)
+    {
+        for(size_t kv=0; kv<N; ++kv)
+        {
+            const float u = ku/(N-1.0f);
+            const float v = kv/(N-1.0f);
+
+            // get gui parameters
+            //const float scaling = gui_scene.eau_scaling;
+            const float scaling = gui_scene.eau_scaling*sin(gui_scene.eau_time.t);
+            const int octave = gui_scene.eau_octave;
+            const float persistency = gui_scene.eau_persistency;
+            const float height = gui_scene.eau_height;
+
+            // Evaluate Perlin noise
+            const float noise = vcl::perlin(scaling*u, scaling*v, octave, persistency);
+
+            const float x = 5*(u-0.5f);
+            const float y = 45*(v-0.5f)-28;
+
+            //const float z = h(x,y,gui_scene.eau_time.t)*height;
+            const float z = height*noise-5.5;
+
+
+            newEauPos[kv+N*ku] = {x,y,z};
+
+        }
+    }
+    unsigned int Ns = N;
+    for(size_t ku=0; ku<Ns-1; ++ku)
+    {
+        for(size_t kv=0; kv<Ns-1; ++kv)
+        {
+            const unsigned int idx = kv + Ns*ku; // current vertex offset
+
+            const vcl::index3 triangle_1 = {idx, idx+1+Ns, idx+1};
+            const vcl::index3 triangle_2 = {idx, idx+Ns, idx+1+Ns};
+
+            newEauCon.push_back(triangle_1);
+            newEauCon.push_back(triangle_2);
+        }
+    }
+
+    eau.data_gpu.update_normal(normal(newEauPos, newEauCon));
+    eau.data_gpu.update_position(newEauPos);
     eau.uniform_parameter.shading.specular=0.5;
     eau.uniform_parameter.shading.ambiant=0.6;
     eau.uniform_parameter.translation={0,0,5};
@@ -375,122 +428,129 @@ void scene_exercise::displayMaison(std::map<std::string, GLuint> &shaders, scene
 
 }
 
-//void scene_exercise::displayFire(std::map<std::string,GLuint>& shaders, scene_structure& scene)
-//{
-//    const float dt = gui_scene.fire_timer.update();
-//    const bool is_new_particle = gui_scene.fire_timer.event;
+void scene_exercise::displaySprite(std::map<std::string,GLuint>& shaders, scene_structure& scene)
+{
+    const float dt = gui_scene.fire_timer.update();
+    //std::cout<<"t : "<<t<<std::endl;
+    //std::cout<<"->dt : "<<dt<<std::endl;
 
-//    if( is_new_particle )
-//    {
-//        fire_particle new_particle;
-//        const vec3 p0 = pot_position;
+    const bool is_new_particle = gui_scene.fire_timer.event;
 
-//        // Initial speed is random. (x,z) components are uniformly distributed along a circle.
-//        const float theta     = 2*3.14f*distrib(generator);
-//        const vec3 v0 = vec3( 2*std::cos(theta), 2*std::sin(theta), 5.0f);
-//        //const vec3 v0 = vec3({0,0,0});
-//        new_particle.p=p0; new_particle.v=v0; new_particle.size.push_back(1);
-//        particles.push_back(new_particle);
-//    }
+    if( is_new_particle )
+    {
+        fire_particle new_particle;
+        const vec3 p0 = pot_position;
+        new_particle.p=p0;
+        particles.push_back(new_particle);
+    }
 
 
-//    // Evolve position of particles
-//    const vec3 g = {0.0f,0.0f,-9.81f};
-//    for(fire_particle& particle : particles)
-//    {
-//        const float m = 0.01f; // particle mass
-
-//        vec3& p = particle.p;
-//        vec3& v = particle.v;
-
-//        const vec3 F = -0.2f*m*g;
-
-//        //Numerical integration
-//        v = v + dt*F/m;
-//        p = p + dt*v;
-//    }
+    // Evolve position of particles
+    const vec3 g = {0.0f,0.0f,-9.81f};
+    const float dz=0.01 , dr=0.001, dsize=0.0003;
+    for(fire_particle& particle : particles)
+    {
+        vec3& p = particle.p;
+        float& t = particle.t;
+        float& R = particle.R;
+        float& size=particle.size;
 
 
-//    // Remove particles that are too low
-//    int i=0;
-//    for(fire_particle par: particles){
-//        if(par.p.z > 10){
-//            particles.erase(particles.begin()+i);
-//        }i++;
-//    }
+        //Numerical integration
+        t = t + dt;
+        R = R + dr;
+        size = size - dsize;
+        p = vec3(pot_position.x + R*cos(t) , pot_position.y + R*sin(t) , p.z+dz);
+    }
 
 
-//    // **************************************** //
-//    // Sprites display
-//    // **************************************** //
-
-//    // Activate transparency - allow blend based on alpha channel value
-//    glEnable(GL_BLEND);
-//    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-//    // Set texture ID to be the one of the sprite
-//    glBindTexture(GL_TEXTURE_2D,sprite_texture);
-
-//    // Desactivate writing in the Z-buffer (semi-transparent object will not hide other semi-transparent objects)
-//    glDepthMask(false);
-
-//    // Set color of the sprite
-//    sprite.uniform_parameter.color = {1,1,1};
-//    // Sprite should not be shaded with lighting - Set ambiant value to 1 and 0 for diffuse and specular
-//    sprite.uniform_parameter.shading = {1,0,0};
-
-//    for(size_t k=0; k<particles.size(); ++k)
-//    {
-//        // Sprite should always face the camera
-//        sprite.uniform_parameter.rotation = scene.camera.orientation;
-//        sprite.uniform_parameter.translation = particles[k].p;
-//        sprite.uniform_parameter.scaling =0.2;
-//        if( gui_scene.enable_sprite )
-//            sprite.draw(shaders["mesh"], scene.camera);
-//    }
+    // Remove particles that are too low
+    int i=0;
+    for(fire_particle par: particles){
+        if(par.p.z > 5){
+            particles.erase(particles.begin()+i);
+        }i++;
+    }
 
 
-//    // In case we want to show the quads on which sprites are displayed
-//    if( !gui_scene.enable_sprite )
-//    {
-//        // return to standard mesh display
-//        glDepthMask(true);
-//        sprite.uniform_parameter.color = {0.1f,0.1f,0.5f};
-//        sprite.uniform_parameter.shading = {0.2f,0.8f,0.3f};
-//        glBindTexture(GL_TEXTURE_2D,scene.texture_white);
+    // **************************************** //
+    // Sprites display
+    // **************************************** //
 
-//        for(size_t k=0; k<particles.size(); ++k)
-//        {
-//            sprite.uniform_parameter.translation = particles[k].p;
-//            sprite.uniform_parameter.scaling = 0.2;
-//            sprite.uniform_parameter.rotation = scene.camera.orientation;
-//            sprite.draw(shaders["mesh"], scene.camera);
+    // Activate transparency - allow blend based on alpha channel value
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-//            // avoids z-fighting between mesh and wireframe
-//            glEnable( GL_POLYGON_OFFSET_FILL ); glPolygonOffset( 1.0, 1.0 );
+    // Set texture ID to be the one of the sprite
+    glBindTexture(GL_TEXTURE_2D,sprite.texture_pos);
 
-//            sprite.draw(shaders["wireframe"], scene.camera);
-//        }
+    // Desactivate writing in the Z-buffer (semi-transparent object will not hide other semi-transparent objects)
+    glDepthMask(false);
 
-//    }
+    // Set color of the sprite
+    sprite.uniform_parameter.color = {1,1,1};
+    // Sprite should not be shaded with lighting - Set ambiant value to 1 and 0 for diffuse and specular
+    sprite.uniform_parameter.shading = {1,0,0};
 
-//    // Set the default settings for future drawings
-//    glDepthMask(true);
-//    glBindTexture(GL_TEXTURE_2D,scene.texture_white);
-//}
+    for(fire_particle particle : particles)
+    {
+        // Sprite should always face the camera
+        sprite.uniform_parameter.rotation = scene.camera.orientation;
+        sprite.uniform_parameter.translation = particle.p;
+        sprite.uniform_parameter.scaling =particle.size;
+        if( gui_scene.enable_sprite )
+            sprite.draw(shaders["mesh"], scene.camera);
+    }
+
+
+    // In case we want to show the quads on which sprites are displayed
+    if( !gui_scene.enable_sprite )
+    {
+        // return to standard mesh display
+        glDepthMask(true);
+        sprite.uniform_parameter.color = {0.1f,0.1f,0.5f};
+        sprite.uniform_parameter.shading = {0.2f,0.8f,0.3f};
+        glBindTexture(GL_TEXTURE_2D,scene.texture_white);
+
+        for(size_t k=0; k<particles.size(); ++k)
+        {
+            sprite.uniform_parameter.translation = particles[k].p;
+            sprite.uniform_parameter.scaling = 0.2;
+            sprite.uniform_parameter.rotation = scene.camera.orientation;
+            sprite.draw(shaders["mesh"], scene.camera);
+
+            // avoids z-fighting between mesh and wireframe
+            glEnable( GL_POLYGON_OFFSET_FILL ); glPolygonOffset( 1.0, 1.0 );
+
+            sprite.draw(shaders["wireframe"], scene.camera);
+        }
+
+    }
+
+    // Set the default settings for future drawings
+    glDepthMask(true);
+    glBindTexture(GL_TEXTURE_2D,scene.texture_white);
+}
+
 
 void scene_exercise::displayEau(std::map<std::string,GLuint>& shaders, scene_structure& scene){
 
     // Display terrain *************************************
     //glPolygonOffset( 1.0, 1.0 );
-    //glBindTexture(GL_TEXTURE_2D, eau_tex);
+    update_eau();
+    glEnable(GL_BLEND);
+
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glBindTexture(GL_TEXTURE_2D, eau_tex);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_MIRRORED_REPEAT);
 
     gui_scene.eau_time.update();
-    update_eau();
-    eau.draw(shaders["mesh"], scene.camera);
 
+    eau.draw(shaders["mesh"], scene.camera);
+    glDisable(GL_BLEND);
     //  Avoids to use the previous texture for another object
-    //glBindTexture(GL_TEXTURE_2D, scene.texture_white);
+    glBindTexture(GL_TEXTURE_2D, scene.texture_white);
 
     if(gui_scene.wireframe){
         eau.draw(shaders["wireframe"], scene.camera);
@@ -536,15 +596,15 @@ void scene_exercise::displayOiseau(vcl::mesh_drawable_hierarchy& oiseau, animal_
 
     // Linear interpolation
     // Linear interpolation
-        const float t_1 = Set.keyframe_time[idx-1];
-        const float t0 = Set.keyframe_time[idx];
-        const float t1 = Set.keyframe_time[idx+1];
-        const float t2 = Set.keyframe_time[idx+2];
+    const float t_1 = Set.keyframe_time[idx-1];
+    const float t0 = Set.keyframe_time[idx];
+    const float t1 = Set.keyframe_time[idx+1];
+    const float t2 = Set.keyframe_time[idx+2];
 
-        const vec3& p_1 = Set.keyframe_position[idx-1];
-        const vec3& p0 = Set.keyframe_position[idx];
-        const vec3& p1 = Set.keyframe_position[idx+1];
-        const vec3& p2 = Set.keyframe_position[idx+2];
+    const vec3& p_1 = Set.keyframe_position[idx-1];
+    const vec3& p0 = Set.keyframe_position[idx];
+    const vec3& p1 = Set.keyframe_position[idx+1];
+    const vec3& p2 = Set.keyframe_position[idx+2];
 
 
     //const vec3 p = linear_interpolation(t,t1,t2,p1,p2);
@@ -565,7 +625,16 @@ void scene_exercise::displayOiseau(vcl::mesh_drawable_hierarchy& oiseau, animal_
 
     // Draw current position
     oiseau.translation("body") = p;
-    oiseau.rotation("body") = rotation_between_vector_mat3({0,-1.0f,0},p-birdP_init)*rotation_from_axis_angle_mat3({1.0f,0,0},3.14/2);
+
+    //il faisait des rotations bizarre
+    vec3 ro = p-birdP_init;
+    if(p.x<0)
+        oiseau.rotation("body") = rotation_between_vector_mat3({0,-1.0f,0},ro)*rotation_from_axis_angle_mat3({1.0f,0,0},3.14/2);
+    if(p.x>0)
+        oiseau.rotation("body") = rotation_between_vector_mat3({0,1.0f,0},ro)
+                                   *rotation_from_axis_angle_mat3({1.0f,0,0},3.14/2)
+                                    *rotation_from_axis_angle_mat3({-1,0,0},3.14)
+                                    *rotation_from_axis_angle_mat3({0,0,1},3.14); //solution au bug
 
     birdP_init=p;
     oiseau.draw(shaders["mesh"],scene.camera);
@@ -609,108 +678,6 @@ void scene_exercise::displayOiseau(vcl::mesh_drawable_hierarchy& oiseau, animal_
     }
 }
 
-void scene_exercise::displaySprite(vcl::mesh_drawable& sprite, animal_setting& Set, std::map<std::string,GLuint>& shaders, scene_structure& scene){
-    Set.animal_timer.update();
-    const float t = Set.animal_timer.t;
-
-
-
-    // ********************************************* //
-    // Compute interpolated position at time t
-    // ********************************************* //
-    const size_t idx = index_at_value(t, Set.keyframe_time);
-
-    // Assume a closed curve trajectory
-    const size_t N = Set.keyframe_time.size();
-
-
-
-    // Linear interpolation
-    // Linear interpolation
-        const float t_1 = Set.keyframe_time[idx-1];
-        const float t0 = Set.keyframe_time[idx];
-        const float t1 = Set.keyframe_time[idx+1];
-        const float t2 = Set.keyframe_time[idx+2];
-
-        const vec3& p_1 = Set.keyframe_position[idx-1];
-        const vec3& p0 = Set.keyframe_position[idx];
-        const vec3& p1 = Set.keyframe_position[idx+1];
-        const vec3& p2 = Set.keyframe_position[idx+2];
-
-
-    //const vec3 p = linear_interpolation(t,t1,t2,p1,p2);
-    const vec3 p = cardinal_spline_interpolation(t,t_1,t0,t1,t2,p_1,p0,p1,p2);
-    Set.trajectory.add_point(p);
-
-    // Draw current position
-    sprite.uniform_parameter.translation = p;
-    sprite.uniform_parameter.rotation = scene.camera.orientation;
-    sprite.uniform_parameter.scaling =0.2;
-
-
-    // **************************************** //
-    // Sprites display
-    // **************************************** //
-
-    // Activate transparency - allow blend based on alpha channel value
-    glEnable(GL_BLEND);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-    // Set texture ID to be the one of the sprite
-    glBindTexture(GL_TEXTURE_2D,sprite_texture);
-
-    // Desactivate writing in the Z-buffer (semi-transparent object will not hide other semi-transparent objects)
-    glDepthMask(false);
-
-    // Set color of the sprite
-    sprite.uniform_parameter.color = {1,1,1};
-
-    // Sprite should not be shaded with lighting - Set ambiant value to 1 and 0 for diffuse and specular
-    sprite.uniform_parameter.shading = {1,0,0};
-
-    sprite.draw(shaders["mesh"],scene.camera);
-
-    // Set the default settings for future drawings
-    glDepthMask(true);
-    glBindTexture(GL_TEXTURE_2D,scene.texture_white);
-
-
-
-    // Draw birdSet.sphere at each keyframe position
-    for(size_t k=0; k<N; ++k)
-    {
-        const vec3& p_keyframe = Set.keyframe_position[k];
-        Set.sphere.uniform_parameter.translation = p_keyframe;
-        Set.sphere.draw(shaders["mesh"],scene.camera);
-    }
-
-
-    // Draw segments between each keyframe
-    for(size_t k=0; k<Set.keyframe_position.size()-1; ++k)
-    {
-        const vec3& pa = Set.keyframe_position[k];
-        const vec3& pb = Set.keyframe_position[k+1];
-
-        Set.segment_drawer.uniform_parameter.p1 = pa;
-        Set.segment_drawer.uniform_parameter.p2 = pb;
-        Set.segment_drawer.draw(shaders["segment_im"], scene.camera);
-    }
-
-    // Draw moving point trajectory
-    Set.trajectory.draw(shaders["curve"], scene.camera);
-
-    // Draw selected oiseau in red
-    if( Set.picked_object!=-1 )
-    {
-        const vec3& p_keyframe = Set.keyframe_position[Set.picked_object];
-        Set.sphere.uniform_parameter.color = vec3(1,0,0);
-        Set.sphere.uniform_parameter.scaling = 0.06f;
-        Set.sphere.uniform_parameter.translation = p_keyframe;
-        Set.sphere.draw(shaders["mesh"],scene.camera);
-        Set.sphere.uniform_parameter.color = vec3(1,1,1);
-        Set.sphere.uniform_parameter.scaling = 0.05f;
-    }
-}
 
 void scene_exercise::displayGoat(vcl::mesh_drawable_hierarchy& goat, animal_setting& Set, std::map<std::string,GLuint>& shaders, scene_structure& scene){
     Set.animal_timer.update();
@@ -1114,7 +1081,27 @@ void scene_exercise::set_gui()
 
     const float time_scale_min = 0.1f;
     const float time_scale_max = 3.0f;
-    ImGui::SliderFloat("Time scale", &birdSet.animal_timer.scale, time_scale_min, time_scale_max);
+    ImGui::SliderFloat("Time scale2", &birdSet.animal_timer.scale, time_scale_min, time_scale_max);
+
+    float path_height_min = 0.01f;
+    float path_height_max = 8.0f;
+    if( ImGui::SliderScalar("Height path", ImGuiDataType_Float, &gui_scene.path_height, &path_height_min, &path_height_max) )
+        update_path(birdSet,gui_scene);
+
+    float path_scaling_min = 0.01f;
+    float path_scaling_max = 10.0f;
+    if( ImGui::SliderScalar("(u,v) Scaling path ", ImGuiDataType_Float, &gui_scene.path_scaling, &path_scaling_min, &path_scaling_max) )
+        update_path(birdSet,gui_scene);
+
+    int Boctave_min = 1;
+    int Boctave_max = 10;
+    if( ImGui::SliderScalar("Octave path", ImGuiDataType_S32, &gui_scene.path_octave, &Boctave_min, &Boctave_max) )
+        update_path(birdSet,gui_scene);
+
+    float Bpersistency_min = 0.1f;
+    float Bpersistency_max = 0.9f;
+    if( ImGui::SliderScalar("Persistency path", ImGuiDataType_Float, &gui_scene.path_persistency, &Bpersistency_min, &Bpersistency_max) )
+        update_path(birdSet,gui_scene);
 
     if( ImGui::Button("Print Keyframe") )
     {
@@ -1135,7 +1122,7 @@ void scene_exercise::set_gui()
     ImGui::Checkbox("Fire", &gui_scene.enable_sprite);
     float firescale_min = 0.05f;
     float firescale_max = 2.0f;
-    ImGui::SliderScalar("Time scale", ImGuiDataType_Float, &gui_scene.fire_timer.scale, &firescale_min, &firescale_max, "%.2f s");
+    ImGui::SliderScalar("Time period", ImGuiDataType_Float, &gui_scene.fire_timer.periodic_event_time_step, &firescale_min, &firescale_max, "%.2f s");
 
 
     //for plants

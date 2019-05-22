@@ -30,7 +30,7 @@ struct scene_exercise : base_scene_exercise
     void createTreePos();
 
     //setup
-    void setup_fire(vcl::vec3 p);
+    void setup_sprite(vcl::vec3 p);
 
     //updater
     void update_terrain();
@@ -41,6 +41,7 @@ struct scene_exercise : base_scene_exercise
     void update_rock_size();
     void update_tree2_position();
     void update_amort_position();
+    void update_path(animal_setting& birdSet , gui_scene_structure& gui, const float R);
 
     //Displayer
     void displayTerrain(std::map<std::string,GLuint>& shaders, scene_structure& scene);
@@ -53,7 +54,7 @@ struct scene_exercise : base_scene_exercise
     void displayCactus(std::map<std::string,GLuint>& shaders, scene_structure& scene);
     void displayRock(std::map<std::string,GLuint>& shaders, scene_structure& scene);
     void displayTree2(std::map<std::string,GLuint>& shaders, scene_structure& scene);
-    void displaySprite(vcl::mesh_drawable& sprite, animal_setting& spriteSet,std::map<std::string,GLuint>& shaders, scene_structure& scene);
+    void displaySprite(std::map<std::string,GLuint>& shaders, scene_structure& scene);
     void displayArbreMort(std::map<std::string, GLuint> &shaders, scene_structure &scene);
     void displayGoat(vcl::mesh_drawable_hierarchy& goat, animal_setting& Set, std::map<std::string,GLuint>& shaders, scene_structure& scene);
 
@@ -99,7 +100,6 @@ struct scene_exercise : base_scene_exercise
     //feu
     std::vector<fire_particle> particles;
     std::vector<float> particles_t;
-    //vcl::mesh_drawable sprite;
     GLuint sprite_texture;
 
     vcl::mesh_drawable sprite;
@@ -116,6 +116,10 @@ struct scene_exercise : base_scene_exercise
     vcl::mesh_drawable_hierarchy oiseau;
     animal_setting birdSet;
     vcl::vec3 birdP_init={0,0,0};
+
+    vcl::mesh_drawable_hierarchy bird2;
+    animal_setting bird2Set;
+    vcl::vec3 bird2P_init={0,0,0};
     //goat
     vcl::mesh_drawable_hierarchy goat;
     animal_setting goatSet;

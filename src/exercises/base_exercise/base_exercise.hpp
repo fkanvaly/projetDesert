@@ -15,6 +15,12 @@ struct gui_scene_structure
     int octave = 6;
     float persistency = 0.16f;
 
+    //bird path
+    float path_height = 3.87f;
+    float path_scaling = 3.8f;
+    int path_octave = 6;
+    float path_persistency = 0.0f;
+
     //eau
     vcl::timer_interval eau_time;
     float eau_height = 0.37f;
@@ -35,8 +41,9 @@ struct fire_particle
 {
     vcl::vec3 p;
     vcl::vec3 v;
-    float t;
-    std::vector<float> size;
+    float t=0.0f;
+    float R=0.0f;
+    float size=0.2f;
 };
 
 

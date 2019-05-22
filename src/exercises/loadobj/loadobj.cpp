@@ -292,7 +292,7 @@ std::map<std::string,std::map<std::string,vec3>>  load_mtl(const char* filename)
     }
 
     std::string line;
-    std::cout<< "start reading materials"<< std::endl;
+    //std::cout<< "start reading materials"<< std::endl;
     while (getline(in, line))
     {
         if (line.substr(0,7) == "newmtl ")
@@ -307,21 +307,21 @@ std::map<std::string,std::map<std::string,vec3>>  load_mtl(const char* filename)
         {
             std::istringstream s (line.substr(3));
             vcl::vec3 Ka; s >> Ka.x; s >> Ka.y; s >> Ka.z;
-            std::cout<< currentName <<" Ka read "<< Ka << std::endl;
+            //std::cout<< currentName <<" Ka read "<< Ka << std::endl;
             material[currentName]["Ka"]=Ka;
         }
         if (line.substr(0,3) == "Kd ")
         {
             std::istringstream s (line.substr(3));
             vcl::vec3 Kd; s >> Kd.x; s >> Kd.y; s >> Kd.z;
-            std::cout<< currentName <<" Kd read "<< Kd << std::endl;
+            //std::cout<< currentName <<" Kd read "<< Kd << std::endl;
             material[currentName]["Kd"]=Kd;
         }
         if (line.substr(0,3) == "Ks ")
         {
             std::istringstream s (line.substr(3));
             vcl::vec3 Ks; s >> Ks.x; s >> Ks.y; s >> Ks.z;
-            std::cout<< currentName << " Ks read "<< Ks << std::endl;
+            //std::cout<< currentName << " Ks read "<< Ks << std::endl;
             material[currentName]["Ks"]=Ks;
         }
     }

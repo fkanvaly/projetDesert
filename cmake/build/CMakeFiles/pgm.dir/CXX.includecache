@@ -154,6 +154,10 @@ map
 vector
 -
 
+/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/exercises.hpp
+monMonde/monMonde.hpp
+/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/monMonde/monMonde.hpp
+
 /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/loadobj/loadobj.hpp
 string
 -
@@ -187,10 +191,6 @@ string
 /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/commonLib/commonLib.hpp
 ../../loadobj/loadobj.hpp
 /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/loadobj/loadobj.hpp
-
-/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.cpp
-eau.hpp
-/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.hpp
 
 /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.hpp
 ../commonLib/commonLib.hpp
@@ -237,6 +237,14 @@ vcl/vcl.hpp
 /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/vcl.hpp
 map
 -
+
+/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/main.cpp
+vcl/vcl.hpp
+/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/vcl.hpp
+helper_scene.hpp
+/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/helper_scene.hpp
+exercises/exercises.hpp
+/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/exercises.hpp
 
 /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/vcl/core/core.hpp
 helper/helper.hpp

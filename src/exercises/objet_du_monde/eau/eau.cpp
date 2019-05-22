@@ -41,7 +41,7 @@ vcl::mesh create_eau(const gui_scene_structure& gui_scene)
 
             eau.position[kv+N*ku] = {x,y,z};
             eau.texture_uv[kv+N*ku] = {15*u, 15*v};
-            eau.color[kv+N*ku]  = {1,1,1,0.0f};
+            eau.color[kv+N*ku]  = {1,1,1,0.3f};
         }
     }
 
@@ -59,6 +59,8 @@ vcl::mesh create_eau(const gui_scene_structure& gui_scene)
             eau.connectivity.push_back(triangle_2);
         }
     }
+
+    eau.normal = normal(eau.position,eau.connectivity);
 
     return eau;
 
