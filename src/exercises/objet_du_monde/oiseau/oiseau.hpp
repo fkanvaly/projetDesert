@@ -25,14 +25,19 @@ struct animal_setting{
 
 vcl::mesh_drawable_hierarchy create_oiseau();
 vcl::mesh_drawable_hierarchy create_goat();
+vcl::mesh_drawable_hierarchy create_croc();
+vcl::mesh_drawable_hierarchy create_boat();
+vcl::mesh_drawable_hierarchy create_snake_head();
 vcl::mesh_drawable create_sprite();
 
-animal_setting init_birdSet(gui_scene_structure gui, const float R);
+animal_setting init_birdSet(gui_scene_structure& gui_scene);
 animal_setting init_goatSet(const vcl::vec3 p, gui_scene_structure& gui);
+animal_setting init_snakeSet(const vcl::vec3 p, gui_scene_structure& gui);
 animal_setting init_sprite();
 
+
 std::vector<vcl::vec3> circle_path(unsigned int N, const float R, float height);
-std::vector<vcl::vec3> bird_path(gui_scene_structure gui, unsigned int N, const float R, float height);
+std::vector<vcl::vec3> bird_path(gui_scene_structure gui_scene, vcl::vec3 trans, unsigned int N, const float R);
 std::vector<vcl::vec3> goat_path(unsigned int N, const float R , vcl::vec3 p, gui_scene_structure& gui);
 std::vector<vcl::vec3> sprite_path(unsigned int N, vcl::vec3 p);
 

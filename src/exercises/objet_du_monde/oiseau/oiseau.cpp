@@ -26,47 +26,75 @@ vcl::mesh_drawable_hierarchy create_oiseau(){
 
     vcl::mesh_drawable_hierarchy bird;
 
-    const float r_body = 0.9f;
-    const float r_head = 0.55f;
-    const float l_arm = 1.5f;
 
-    //vcl::mesh_drawable body=load_obj("data/oiseau/corps_oiseau.obj","data/oiseau/corps_oiseau.mtl");
-    vcl::mesh_drawable body = vcl::mesh_primitive_sphere(r_body,{0,0,0},40,40);
-    body.uniform_parameter.scaling_axis={1,1,1.5};
-    body.uniform_parameter.scaling_axis={1,0.8,1.5};
+    vcl::mesh_drawable body=load_obj("data/animals/bird_Body.obj");
+    //body.uniform_parameter.shading={1,1,0.2};
+    body.uniform_parameter.color={0.8,0.8,0.8};
 
-
-
-    vcl::mesh_drawable head = vcl::mesh_primitive_sphere(r_head,{0,0,0},40,40);
-
-    vcl::mesh_drawable eye = vcl::mesh_primitive_sphere(0.08f,{0,0,0},20,20);
-    eye.uniform_parameter.color = {0,0,0};
-
-    vcl::mesh_drawable nose = vcl::mesh_primitive_cone(0.2f,{0,0,0},{0,0,0.5},20,10);
-    nose.uniform_parameter.color = {1,0.1,0};
-
-    vcl::mesh arm_top_left = vcl::mesh_primitive_quad({0,0,0},{l_arm,0,0},{l_arm,0,l_arm},{0,0,l_arm});
-    vcl::mesh arm_top_right = vcl::mesh_primitive_quad({0,0,0},{-l_arm,0,0},{-l_arm,0,l_arm},{0,0,l_arm});
-
-    vcl::mesh arm_bottom_left = vcl::mesh_primitive_quad({0,0,0},{l_arm,0,l_arm/3},{l_arm,0,2*l_arm/3},{0,0,l_arm});
-    vcl::mesh arm_bottom_right = vcl::mesh_primitive_quad({0,0,0},{-l_arm,0,l_arm/3},{-l_arm,0,2*l_arm/3},{0,0,l_arm});
-
+    vcl::mesh_drawable arm_top_left=load_obj("data/animals/bird_lArm.obj");
+    arm_top_left.uniform_parameter.color={0.4,0.4,0.4};
+    arm_top_left.uniform_parameter.shading.specular=0;
+    vcl::mesh_drawable arm_top_right=load_obj("data/animals/bird_rArm.obj");
+    arm_top_right.uniform_parameter.color={0.4,0.4,0.4};
+    arm_top_right.uniform_parameter.shading.specular=0;
+    vcl::mesh_drawable eyes=load_obj("data/animals/bird_eyes.obj","data/animals/bird_eyes.mtl");
 
     bird.add_element(body, "body", "root");
 
     //Head
-    bird.add_element(head, "head", "body",{0,0.5,1.7f*r_body});
-    bird.add_element(eye, "eye_left", "head",{r_head*std::sin(3.14*0.25)*std::cos(3.14*0.25),r_head*std::cos(3.14*0.25),r_head*cos(3.14*0.25)*cos(3.14*0.25)});
-    bird.add_element(eye, "eye_right", "head",{-r_head*sin(3.14*0.25)*std::cos(3.14*0.25),r_head*std::cos(3.14*0.25),r_head*cos(3.14*0.25)*cos(3.14*0.25)});
-    bird.add_element(nose,"nose","head",{0,0,r_head*0.9});
+    bird.add_element(eyes, "eyes", "body",{0,0,0});
     //Arm
-    bird.add_element(arm_top_left, "arm_top_left", "body",{0.5*r_body,0,-0.7});
-    bird.add_element(arm_bottom_left, "arm_bottom_left", "arm_top_left",{l_arm,0,0});
+    bird.add_element(arm_top_left, "arm_top_left", "body",{0,0,0});
 
-    bird.add_element(arm_top_right, "arm_top_right", "body",{-0.5*r_body,0,-0.7});
-    bird.add_element(arm_bottom_right, "arm_bottom_right", "arm_top_right",{-l_arm,0,0});
+    bird.add_element(arm_top_right, "arm_top_right", "body",{0,0,0});
 
     return bird;
+}
+
+vcl::mesh_drawable_hierarchy create_croc(){
+
+    vcl::mesh_drawable_hierarchy croc;
+
+    vcl::mesh_drawable body=load_obj("data/animals/croc/body.obj", "data/animals/croc/body.mtl" );
+
+    vcl::mesh_drawable foot=load_obj("data/animals/croc/foot.obj", "data/animals/croc/foot.mtl");
+
+    vcl::mesh_drawable eyes=load_obj("data/animals/croc/eye.obj", "data/animals/croc/eye.mtl");
+
+    vcl::mesh_drawable dents=load_obj("data/animals/croc/dent.obj");
+
+
+    croc.add_element(body, "body", "root");
+    croc.add_element(eyes, "eyes", "body",{0,0,0});
+    croc.add_element(foot, "foot", "body",{0,0,0});
+    croc.add_element(dents, "dents", "body",{0,0,0});
+
+    croc.scaling=0.4;
+
+    return croc;
+}
+
+vcl::mesh_drawable_hierarchy create_boat(){
+
+    vcl::mesh_drawable_hierarchy boat;
+
+    vcl::mesh_drawable body=load_obj("data/boat/voile.obj", "data/boat/voile.mtl" );
+
+    vcl::mesh_drawable mat=load_obj("data/boat/mat.obj", "data/boat/mat.mtl");
+
+    vcl::mesh_drawable foc=load_obj("data/boat/foc.obj", "data/boat/foc.mtl");
+
+    vcl::mesh_drawable corde=load_obj("data/boat/cordeobj.obj", "data/boat/cordeobj.mtl");
+
+
+    boat.add_element(body, "body", "root");
+    boat.add_element(mat, "eyes", "body",{0,0,0});
+    boat.add_element(foc, "foot", "body",{0,0,0});
+    boat.add_element(corde, "dents", "body",{0,0,0});
+
+    boat.scaling=0.5;
+
+    return boat;
 }
 
 vcl::mesh_drawable_hierarchy create_goat(){
@@ -75,6 +103,19 @@ vcl::mesh_drawable_hierarchy create_goat(){
     vcl::mesh_drawable goat_eyes=load_obj("data/animals/goat_eyes.obj","data/animals/goat_eyes.mtl");
     goat.add_element(goat_body,"body","root");
     return goat;
+}
+
+vcl::mesh_drawable_hierarchy create_snake_head(){
+    vcl::mesh_drawable_hierarchy snake_head;
+    vcl::mesh_drawable head = load_obj("data/snake/head.obj");
+    head.uniform_parameter.color ={147./255, 94./255, 0./255};
+    head.uniform_parameter.shading.specular=0;
+    vcl::mesh_drawable eyes = load_obj("data/snake/eyes.obj","data/snake/eyes.mtl");
+    snake_head.add_element(head, "head", "root");
+    snake_head.add_element(eyes, "eyes","head");
+    snake_head.scaling = 1.6;
+
+    return snake_head;
 }
 
 vcl::mesh_drawable create_sprite(){
@@ -87,10 +128,10 @@ vcl::mesh_drawable create_sprite(){
 
 //INIT
 
-animal_setting init_birdSet(gui_scene_structure gui, const float R){
+animal_setting init_birdSet(gui_scene_structure& gui_scene){
     animal_setting bird_set;
     bird_set.N=100;
-    bird_set.keyframe_position = bird_path(gui, bird_set.N, 8.0, 5.0);
+    bird_set.keyframe_position = bird_path(gui_scene, {0,0,0}, bird_set.N, 8.0);
     bird_set.keyframe_time = create_keyTime(bird_set.N);
 
     // Set timer bounds
@@ -153,6 +194,39 @@ animal_setting init_goatSet(const vcl::vec3 p, gui_scene_structure& gui){
     return goat_set;
 }
 
+animal_setting init_snakeSet(const vcl::vec3 p, gui_scene_structure& gui){
+    animal_setting snake_set;
+    snake_set.N=25;
+    snake_set.keyframe_position = goat_path(snake_set.N, 8.0, p, gui);
+    snake_set.keyframe_time = create_keyTime(snake_set.N);
+
+    // Set timer bounds
+    //  To ease spline interpolation of a closed curve time \in [t_1,t_{N-2}]
+    snake_set.animal_timer.t_min = snake_set.keyframe_time[1];
+    snake_set.animal_timer.t_max = snake_set.keyframe_time[snake_set.keyframe_time.size()-2];
+    snake_set.animal_timer.t = snake_set.animal_timer.t_min;
+
+    // Prepare the visual elements
+    snake_set.surface = vcl::mesh_primitive_sphere();
+    snake_set.surface.uniform_parameter.color   = {0,0,1};
+    snake_set.surface.uniform_parameter.scaling = 0.08f;
+
+    snake_set.sphere = vcl::mesh_primitive_sphere();
+    snake_set.sphere.uniform_parameter.color = {1,1,1};
+    snake_set.sphere.uniform_parameter.scaling = 0.05f;
+
+    snake_set.segment_drawer.init();
+
+    snake_set.trajectory = vcl::curve_dynamic_drawable(100); // number of steps stroed in the trajectory
+    snake_set.trajectory.uniform_parameter.color = {0,0,1};
+
+    snake_set.picked_object=-1;
+
+    snake_set.animal_timer.scale=0.2f;
+
+    return snake_set;
+}
+
 
 //SOME PATH
 
@@ -184,8 +258,9 @@ std::vector<vcl::vec3> goat_path(unsigned int N, const float R, vcl::vec3 p,gui_
     return path;
 }
 
-std::vector<vcl::vec3> bird_path(gui_scene_structure gui_scene, unsigned int N, const float R, float height){
+std::vector<vcl::vec3> bird_path(gui_scene_structure gui_scene, vcl::vec3 trans, unsigned int N, const float R){
     std::vector<vcl::vec3> path;
+    float height = trans.z;
 
     //const float scaling = gui_scene.eau_scaling;
     const float scaling = gui_scene.path_scaling;
@@ -196,21 +271,20 @@ std::vector<vcl::vec3> bird_path(gui_scene_structure gui_scene, unsigned int N, 
     // Evaluate Perlin noise
 
 
-    //
+
     float angle=0, toAdd=4*M_PI/(N-1);
     for (int i=0; i<N/4 ; i++) {
         vcl::vec3 p = {R*std::cos(angle),R*std::sin(angle),height};
 
         const float noise = vcl::perlin(scaling*p.x, scaling*p.y, octave, persistency);
         p.z=p.z+noise*h;
-
         path.push_back(p);
         angle+=toAdd;
     }
 
     vcl::vec3 p00 = path[path.size()-1];
     float dy=5.0f;
-    for (int i=0; i<N/4 ; i++) {
+    for (int i=0; i<N/4; i++) {
         p00 = vcl::vec3{p00.x,p00.y,height} + vcl::vec3(0,-dy,0);
 
         const float noise = vcl::perlin(scaling*p00.x, scaling*p00.y, octave, persistency);
@@ -224,7 +298,6 @@ std::vector<vcl::vec3> bird_path(gui_scene_structure gui_scene, unsigned int N, 
 
         const float noise = vcl::perlin(scaling*p.x, scaling*p.y, octave, persistency);
         p.z=p.z+noise*h;
-
         path.push_back(p);
         angle+=toAdd;
     }
@@ -241,6 +314,9 @@ std::vector<vcl::vec3> bird_path(gui_scene_structure gui_scene, unsigned int N, 
 
     path.push_back(path[0]);path.push_back(path[1]);
 
+    for (vcl::vec3& p: path) {
+        p = p + vcl::vec3(trans.x, trans.y,0);
+    }
 
 
     return path;

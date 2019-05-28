@@ -28,3 +28,4 @@ vcl::mesh_drawable_hierarchy createTente(){
 
     return tente;
 }
+

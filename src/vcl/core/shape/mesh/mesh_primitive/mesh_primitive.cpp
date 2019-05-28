@@ -84,6 +84,7 @@ mesh mesh_primitive_sphere(float radius, const vec3& p0, size_t Nu, size_t Nv)
 
             shape.position.push_back( p+p0 );
             shape.normal.push_back( n );
+            shape.texture_uv.push_back({u,v});
         }
     }
 

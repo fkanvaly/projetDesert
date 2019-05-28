@@ -4,16 +4,19 @@
 #include "../../helper_scene.hpp"
 #include "../../exercise_current.hpp"
 
+
 struct gui_scene_structure
 {
     bool wireframe   = false;
-    bool skybox = false;
+    bool skybox = true;
 
     //terrain
     float height = 0.67f;
     float scaling = 8.06f;
     int octave = 6;
     float persistency = 0.16f;
+
+    bool path   = false;
 
     //bird path
     float path_height = 3.87f;
@@ -27,6 +30,12 @@ struct gui_scene_structure
     float eau_scaling = 3.8f;
     int eau_octave = 6;
     float eau_persistency = 0.0f;
+
+    vcl::timer_interval eau2_time;
+    float eau2_height = 0.37f;
+    float eau2_scaling = 3.8f;
+    int eau2_octave = 6;
+    float eau2_persistency = 0.0f;
 
     bool cactus   = true;
     bool rock   = true;

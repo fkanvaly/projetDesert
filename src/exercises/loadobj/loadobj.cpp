@@ -162,6 +162,8 @@ mesh_drawable load_obj(const char* objfile, const char* mtlfile)
         }
     }
 
+    obj.normal = normal(obj.position, obj.connectivity);
+
     mesh_drawable objDrawable=obj;
     objDrawable.uniform_parameter.shading.ambiant=Mtl[MtlName]["Ka"].x;
     objDrawable.uniform_parameter.shading.specular=Mtl[MtlName]["Ks"].x;
@@ -273,6 +275,7 @@ mesh_drawable load_obj(const char* objfile)
             /* ignoring this line */
         }
     }
+    obj.normal = normal(obj.position, obj.connectivity);
 
     mesh_drawable objDrawable=obj;
 

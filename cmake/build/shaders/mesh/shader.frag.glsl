@@ -18,7 +18,8 @@ uniform float ambiant  = 0.2;
 uniform float diffuse  = 0.8;
 uniform float specular = 0.5;
 
-vec3 light = vec3(camera_position.x, camera_position.y, 3.0f);
+vec3 light = vec3(camera_position.x, camera_position.y, 30.0f);
+//vec3 light = vec3(0, 0, 30.0f);
 
 void main()
 {
