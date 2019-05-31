@@ -39,7 +39,7 @@ vcl::mesh create_terrain(const gui_scene_structure& gui_scene)
 
 
             //float radious = 8;
-            float z = evaluate_terrain_z(u,v, gui_scene);
+            float z = evaluate_terrain_z(u,v, gui_scene); //fait les deux aplanissement en meme temps
 
 
             // Compute coordinates
@@ -82,7 +82,7 @@ float evaluate_terrain_z(float u, float v, const gui_scene_structure& gui_scene)
     //Norme
     const float x = 70*(u-0.5f);
     const float y = 100*(v-0.5f);
-    const float norm= sqrt(pow(x,2)+pow(std::max(y+10.0,0.0),2));
+    const float norm= sqrt(pow(x,2)+pow(std::max(y + 10.0,0.0),2));
 
     const std::vector<vcl::vec2> pi = {{0,0}, {0.5f,0.5f}, {0.2f,0.7f}, {0.8f,0.7f},{0.4f,0.8f},{0.6f,0.4f},{0.2f,0.7f}, {0.8f,0.7f},{0.4f,0.8f}};
     const std::vector<float> hi = {3.0f, -1.5f, 1.0f, 2.0f, 1.5f,1.0f,3.0f, -1.5f, 1.0f};
@@ -100,12 +100,14 @@ float evaluate_terrain_z(float u, float v, const gui_scene_structure& gui_scene)
         z += 0.2f*vcl::perlin(scaling*u, scaling*v, octave, persistency);
 
     }
+
     z=z*height;
 
+    //on fait la deformation puis on applique le deuxieme aplanissement sur le resultat
     float d= std::max(norm-radious,0.0f)/1.5;
-    d=1-exp(-pow(d,4));
+    d=1-exp(-pow(d,2));
     d=(d>1)?1:d;
-    if(d!=0) return evaluate_terrain_z2(x,y,1.2*z*d);
+    if(d!=0) return evaluate_terrain_z2(x,y, 1.2*z*d );
 
     return evaluate_terrain_z2(x,y,  -exp(-pow(0.5*pow(norm,2),2)/10)) ;
 
@@ -117,7 +119,7 @@ float evaluate_terrain_z2(float x, float y, float z)
     //Norme
     const float norm= sqrt(pow(std::max(x-40,0.0f),2)+pow(y+45, 2));
     float d= std::max(norm-radious,0.0f)/1.5;
-    d=1-exp(-pow(d,4));
+    d=1-exp(-pow(d,2));
     d=(d>1)?1:d;
     if(d!=0) return 1.2*z*d;
 

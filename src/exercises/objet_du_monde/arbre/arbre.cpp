@@ -29,6 +29,6 @@ vcl::mesh_drawable_hierarchy createTree2(){
     arbre.add_element(tronc,"tronc","root");
     arbre.add_element(feuille,"feuille","tronc",{0,0,0});
 
-    arbre.scaling=3;
+    arbre.scaling=2.5;
     return arbre;
 }

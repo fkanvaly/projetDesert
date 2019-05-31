@@ -49,7 +49,7 @@ vcl::mesh create_eau(gui_scene_structure& gui_scene)
 
             eau.position[kv+N*ku] = {x,y,z};
             eau.texture_uv[kv+N*ku] = {15*u, 15*v};
-            eau.color[kv+N*ku]  = {1,1,1,0.4f};
+            eau.color[kv+N*ku]  = {1,1,1,0.6f};
         }
     }
 
@@ -87,6 +87,24 @@ float z_eau(const vcl::vec2 p, gui_scene_structure& gui_scene){
     const float noise = vcl::perlin(scaling*u, scaling*v, octave, persistency);
 
     float z=height*noise-5.5;
+
+    return z;
+
+}
+
+float z_eau2(const vcl::vec2 p, gui_scene_structure& gui_scene){
+    const float scaling = gui_scene.eau_scaling*sin(gui_scene.eau_time.t);
+    const int octave = gui_scene.eau_octave;
+    const float persistency = gui_scene.eau_persistency;
+    const float height = gui_scene.eau_height;
+
+    float u = p.x/70.0f + 0.5f;
+    float v = (p.y+59.5)/20 + 0.5f;
+
+    // Evaluate Perlin noise
+    const float noise = vcl::perlin(scaling*u, scaling*v, octave, persistency);
+
+    float z=height*noise;
 
     return z;
 
@@ -155,7 +173,7 @@ vcl::mesh create_eau2(gui_scene_structure& gui_scene)
 
             eau.position[kv+N*ku] = {x,y,z};
             eau.texture_uv[kv+N*ku] = {15*u, 15*v};
-            eau.color[kv+N*ku]  = {1,1,1,0.4f};
+            eau.color[kv+N*ku]  = {1,1,1,0.6f};
         }
     }
 
@@ -231,6 +249,7 @@ vcl::mesh create_sousEau()
     return eau;
 
 }
+
 
 
 

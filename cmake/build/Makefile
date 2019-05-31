@@ -447,6 +447,33 @@ home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/monMon
 	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/monMonde/monMonde.cpp.s
 .PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/monMonde/monMonde.cpp.s
 
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.o: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.cpp.o
+
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.o
+
+# target to build an object file
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.cpp.o:
+	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.cpp.o
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.cpp.o
+
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.i: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.cpp.i
+
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.i
+
+# target to preprocess a source file
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.cpp.i:
+	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.cpp.i
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.cpp.i
+
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.s: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.cpp.s
+
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.s
+
+# target to generate assembly for a file
+home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.cpp.s:
+	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.cpp.s
+.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.cpp.s
+
 home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/arbre/arbre.o: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/arbre/arbre.cpp.o
 
 .PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/arbre/arbre.o
@@ -554,33 +581,6 @@ home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_
 home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.cpp.s:
 	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.cpp.s
 .PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.cpp.s
-
-home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.o: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.o
-
-.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.o
-
-# target to build an object file
-home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.o:
-	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.o
-.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.o
-
-home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.i: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.i
-
-.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.i
-
-# target to preprocess a source file
-home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.i:
-	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.i
-.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.i
-
-home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.s: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.s
-
-.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.s
-
-# target to generate assembly for a file
-home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.s:
-	$(MAKE) -f CMakeFiles/pgm.dir/build.make CMakeFiles/pgm.dir/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.s
-.PHONY : home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.cpp.s
 
 home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.o: home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.cpp.o
 
@@ -1869,6 +1869,9 @@ help:
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/monMonde/monMonde.o"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/monMonde/monMonde.i"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/monMonde/monMonde.s"
+	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.o"
+	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.i"
+	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.s"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/arbre/arbre.o"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/arbre/arbre.i"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/arbre/arbre.s"
@@ -1881,9 +1884,6 @@ help:
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.o"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.i"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.s"
-	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.o"
-	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.i"
-	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.s"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.o"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.i"
 	@echo "... home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/feu.s"

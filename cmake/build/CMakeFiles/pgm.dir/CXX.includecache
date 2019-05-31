@@ -176,6 +176,16 @@ random
 string
 -
 
+/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.hpp
+../commonLib/commonLib.hpp
+/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/commonLib/commonLib.hpp
+../terrain/terrain.hpp
+/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/terrain/terrain.hpp
+../eau/eau.hpp
+/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.hpp
+../../base_exercise/base_exercise.hpp
+/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/base_exercise/base_exercise.hpp
+
 /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/arbre/arbre.hpp
 ../commonLib/commonLib.hpp
 /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/commonLib/commonLib.hpp
@@ -203,22 +213,14 @@ arbre/arbre.hpp
 /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/arbre/arbre.hpp
 cactus/cactus.hpp
 /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/cactus/cactus.hpp
-oiseau/oiseau.hpp
-/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.hpp
+animated/animated.hpp
+/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/animated/animated.hpp
 flower/flower.hpp
 /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/flower/flower.hpp
 tente/tente.hpp
 /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.hpp
 eau/eau.hpp
 /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/eau/eau.hpp
-
-/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/oiseau/oiseau.hpp
-../commonLib/commonLib.hpp
-/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/commonLib/commonLib.hpp
-../terrain/terrain.hpp
-/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/terrain/terrain.hpp
-../../base_exercise/base_exercise.hpp
-/home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/base_exercise/base_exercise.hpp
 
 /home/kanva/Documents/X-2A/INFO3D/projet3D/village_du_desert/src/exercises/objet_du_monde/tente/tente.hpp
 ../commonLib/commonLib.hpp

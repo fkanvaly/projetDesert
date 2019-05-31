@@ -9,6 +9,7 @@ struct gui_scene_structure
 {
     bool wireframe   = false;
     bool skybox = true;
+    bool camera_ownpath = false;
 
     //terrain
     float height = 0.67f;
@@ -26,8 +27,8 @@ struct gui_scene_structure
 
     //eau
     vcl::timer_interval eau_time;
-    float eau_height = 0.37f;
-    float eau_scaling = 3.8f;
+    float eau_height = 0.225f;
+    float eau_scaling = 2.68f;
     int eau_octave = 6;
     float eau_persistency = 0.0f;
 
@@ -52,6 +53,13 @@ struct fire_particle
     vcl::vec3 v;
     float t=0.0f;
     float R=0.0f;
+    float size=0.2f;
+};
+struct particle_structure
+{
+    vcl::vec3 p0;
+    vcl::vec3 v0;
+    float t0=0.0f;
     float size=0.2f;
 };
 

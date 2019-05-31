@@ -10,28 +10,29 @@ using namespace vcl;
 std::default_random_engine generator;
 std::uniform_real_distribution<float> distrib(0.0,1.0);
 
+
 //les fonctions
 mesh create_grid(const gui_scene_structure& gui_scene);
 vcl::mesh create_skybox();
 bool onGround(vec3 p);
+bool onGround2(vec3 p);
 vcl::vec3 rotateFrom(const vec3& p, const vec3& k, float theta);
-
+std::vector<vec3> camera_path(unsigned int N, const float R, float height);
 void add_pos(vcl::vec3 p, snake_tail& snake_tail);
 
 
-/** This function is called before the beginning of the animation loop
-    It is used to initialize all part-specific data */
+/** ****** SETUP_DATA ******** **/
 void scene_exercise::setup_data(std::map<std::string,GLuint>& shaders, scene_structure& scene, gui_structure& )
 {
 
-    //initialisation du terrain
+    //initialisation du terrain-----------------------------// *
     update_terrain();
     terrain_tex = texture_gpu( image_load_png("data/terrain/sabl.png") );
     raccord = create_underTerrain(gui_scene);
     raccord.uniform_parameter.color={0.9,0.7,0.6};
     raccord.uniform_parameter.shading.ambiant=0.5;
 
-    //eau
+    //eau-----------------------------// *
     eau= create_eau(gui_scene);
     gui_scene.eau_time.t_min=0;
     gui_scene.eau_time.t_max=100;
@@ -48,15 +49,15 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& shaders, scene_str
     gui_scene.eau2_time.scale=0.1;
     update_eau2();
 
+
+
     sousEau = create_sousEau();
     sousEau.uniform_parameter.color = {0.83,0.69,0.43};
     sousEau.uniform_parameter.shading.specular = 0.0f;
     sousEau.uniform_parameter.shading.ambiant=1.0f;
 
-    //Creation des objets********************************************************************************************************
-
-    //statue
-    //statue=load_obj("data/statue/statue.obj");
+    //statue-----------------------------// *
+    statue=load_obj("data/statue/statue.obj");
     statue.uniform_parameter.color={0.56,0.40,0.16};
     statue.uniform_parameter.shading.specular=0;
     statue.uniform_parameter.shading.ambiant=0.8;
@@ -64,7 +65,7 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& shaders, scene_str
     statue.uniform_parameter.scaling=0.04;
     statue.uniform_parameter.rotation=rotation_from_axis_angle_mat3({0,1,0}, 3.14/3.5);
 
-    //maison
+    //maison-----------------------------// *
     maison=load_obj("data/maison/maison.obj","data/maison/maison.mtl");
     maison.uniform_parameter.rotation=rotation_from_axis_angle_mat3({0,0,1}, -3.14f*0.5);
     maison.uniform_parameter.translation={-8,-20,0};
@@ -73,16 +74,15 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& shaders, scene_str
     maison.uniform_parameter.shading.specular=0;
 
 
-    //Tree
+    //Tree-----------------------------// *
     tree=createTree(); tree.scaling=0.15; //palm tree
     createTreePos();
-    tree2=createTree2(); //green tree
-    update_tree2_position();
 
-    //Oiseau
+    update_vegetation_type();
+
+    //Oiseau-----------------------------// *
     birds.resize(N_bird);
     birdSet.resize(N_bird);
-    birdP_init.resize(N_bird);
 
     bird_R={8.0, 4.0 , 5.0, 4.0, 3.0, 8.0, 4.0 , 5.0, 4.0, 3.0,8.0};
     bird_pos = {{10,-10,5},{-20,12,9}, {-13,10,5}, {13,10,15}, {-9,12,9}, {15,-22,5},{-20,20,9}, {-04,-40,5}, {-23,-12,5}, {9,-12,9}, {-20,-40,7}};
@@ -96,18 +96,17 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& shaders, scene_str
         birdSet[k].animal_timer.t= birdSet[k].animal_timer.t_min + distrib(generator)*10;
         birdSet[k].N=20;
 
-        birdP_init[k]={0,0,0};
+        //choose direction in with we will rotate the path
         if(distrib(generator)>0.5)
             bird_rotation.push_back(M_PI*distrib(generator));
         else {
             bird_rotation.push_back(-M_PI*distrib(generator));
         }
 
-
-        update_path(gui_scene, k);
+        update_path(gui_scene, k); //create bird k path
     }
 
-    //goat
+    //goat-----------------------------// *
     goats.resize(N_goat);
     goatSets.resize(N_goat);
     goatP_inits.resize(N_goat);
@@ -116,13 +115,13 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& shaders, scene_str
 
     for (int k=0; k<N_goat; k++) {
         goats[k] = create_goat();
+        //goats[k].rotation("body")=rotation_from_axis_angle_mat3({0,0,1}, M_PI/2);
         goats[k].scaling=0.2;
         goatSets[k] = init_goatSet(goat_pos[k],gui_scene);
         goatP_inits[k]={0,0,0};
     }
 
-    //snake******************
-    // load textures
+    //snake-----------------------------// *
     texture_snake = texture_gpu(image_load_png("data/snake/snake2.png"));
 
     snake_sphere=mesh_primitive_sphere();
@@ -134,7 +133,7 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& shaders, scene_str
     snakeP_inits.resize(N_snake);
     queue.resize(N_snake);
 
-    snake_pos = {{20,20,0}, {-20,20,0}, {0,40,0}, {0,0,0}};
+    snake_pos = {{10,-10,5},{-20,12,9}, {-13,10,5}, {13,10,15}};
 
     for (int k=0; k<N_snake; k++) {
         snakes[k] = create_snake_head();
@@ -143,37 +142,61 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& shaders, scene_str
         snakeP_inits[k]={0,0,0};
     }
 
-    //crocodile
+    //crocodile-----------------------------// *
     croc = create_croc();
 
-    //boat
+    //boat-----------------------------// *
     boat = create_boat();
-    boat.rotation("body")=rotation_from_axis_angle_mat3({0,0,1}, M_PI);
+    boat2 = create_boat();
+    boat3 = create_boat();
+    boat2Set = init_boatSet(boat2_xy, gui_scene);
+    boat3Set = init_boatSet(boat3_xy, gui_scene);
+    boat2Set.animal_timer.t = boat2Set.animal_timer.t_min + distrib(generator)*120;
 
 
-    //flower
+    //flower-----------------------------// *
     flower=createFlower(0.1f);
     update_flower_position();
 
-    //cactus
-    cactus=createCactus(); cactus.scaling=0.3; //cactus type 1
+    //cactus-----------------------------// *
+    cactus=createCactus(); cactus.scaling=0.8; //cactus type 1
     cactus.translation("tronc")={0,0,10};
-    update_cactus_position();
 
-    cac2=load_obj("data/cactus/cac2.obj");  //cactus type 2
-    cac2.uniform_parameter.color={0.162093, 0.319995, 0.093024};
-    cac2.uniform_parameter.shading.ambiant=1;
-    cac2.uniform_parameter.shading.specular=0;
-    cac2.uniform_parameter.scaling=1.5;
+    cactus2=load_obj("data/cactus/cac2.obj");  //cactus type 2
+    cactus2.uniform_parameter.color={0.162093, 0.319995, 0.093024};
+    cactus2.uniform_parameter.shading.ambiant=1;
+    cactus2.uniform_parameter.shading.specular=0;
+    cactus2.uniform_parameter.scaling=4;
 
-    //rock
+    //rock-----------------------------// *
     caillou=load_obj("data/arbre/caillou.obj");
     caillou.uniform_parameter.color={0.6 ,0.6, 0.6};
     caillouTex=texture_gpu(image_load_png("data/arbre/caillou.png"));
     update_rock_position();
     update_rock_size();
 
-    //tente------------/
+    rock2 = load_obj("data/rock/rock2.obj");
+    rock2.uniform_parameter.scaling = 0.5; rock2.uniform_parameter.shading.specular=0;
+    rock2.uniform_parameter.color = {84.1/255.,66.0/255. , 34./255.};
+    rock2.uniform_parameter.shading.ambiant=0.8;
+    rock3 = load_obj("data/rock/rock3.obj","data/rock/rock3.mtl");
+    rock3.uniform_parameter.scaling = 0.5; rock3.uniform_parameter.shading.specular=0;
+    rock3.uniform_parameter.color = {84.1/255.,66.0/255. , 34./255.};
+    rock3.uniform_parameter.shading.ambiant=0.2;
+
+    //tour-----------------------------// *
+    tour = load_obj("data/tour.obj","data/tour.mtl");
+    tour.uniform_parameter.scaling = 3;
+    tour.uniform_parameter.translation = {-20,-40,0};
+
+    //bateau bord
+    boat4 = load_obj("data/boat2.obj");
+    boat4.uniform_parameter.scaling = 5; boat4.uniform_parameter.shading.specular=0;
+    boat4.uniform_parameter.color = {84.1/255.,66.0/255. , 34./255.};
+    boat4.uniform_parameter.shading.ambiant=0.8;
+    boat4.uniform_parameter.translation = {-20,-50,0};
+
+    //tente-----------------------------// *
     tente=createTente();
     tente.rotation("drap")=rotation_from_axis_angle_mat3({0,0,1}, -3.14*0.5);
     tente.translation("drap")={0,-4,0};
@@ -197,7 +220,7 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& shaders, scene_str
 
 
 
-    //cloud
+    //cloud-----------------------------// *
     cloud = load_obj("data/cloud.obj");
     cloud.uniform_parameter.scaling=1.2;
     cloud.uniform_parameter.shading.ambiant=0.2;
@@ -208,21 +231,27 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& shaders, scene_str
         cloud_position.push_back({x,y,cloud_height});
     }
 
+    //pluie-----------------------------// *
+    goute = mesh_drawable(mesh_primitive_sphere(0.03f));
+    goute.uniform_parameter.color = vec3(0.6f, 0.6f, 1.0f);
+    goute_timer.periodic_event_time_step = 0.01f;
+    pluie_timer.periodic_event_time_step = 20;
+    goute_timer.scale=1.45;
+    for (int i = 0; i < 3; ++i) {
+        size_t k = distrib(generator)*cloud_position.size();
+        pluie_position.push_back(cloud_position[k]);
+    }
 
-    //arbremort
-    arbremort=load_obj("data/arbre/arbre_mort.obj");
-    arbremort.uniform_parameter.scaling=0.3;
-    arbremort.uniform_parameter.color={1 ,1, 1};
-    arbremortTex=texture_gpu(image_load_png("data/arbre/wood.png"));
-    update_amort_position();
 
-    //skybox
+    //skybox-----------------------------// *
     skybox = create_skybox();
     skybox.uniform_parameter.shading = {1,0,0};
     skybox.uniform_parameter.rotation = rotation_from_axis_angle_mat3({1,0,0},-3.014f/2.0f);
     texture_skybox = texture_gpu(image_load_png("data/skybox/desertbox.png"));
 
-    //drapeau
+
+    /************************************    *          DRAPEAU         *    ************************************/
+
     poteau = mesh_primitive_cylinder(0.1,{0,0,0},{0,0,10}); // le poteau
 
     // Load shaders
@@ -231,7 +260,6 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& shaders, scene_str
 
     // Load textures
     texture_cloth = texture_gpu(image_load_png("data/cloth/X.png"));
-
 
     // Initialize cloth geometry and particles
     initialize();
@@ -247,62 +275,50 @@ void scene_exercise::setup_data(std::map<std::string,GLuint>& shaders, scene_str
     cloth.uniform_parameter.rotation= rotation_from_axis_angle_mat3({0,1,0}, M_PI/2);
     cloth.uniform_parameter.translation = {0,-1,9.5};
 
-
     // Init visual models
     sphere = mesh_drawable(mesh_primitive_sphere(1.0f,{0,0,0},60,60));
 
     //timer
-
     flag_timer.scale=1;
     flag_timer1.scale=1;
     flag_timer1.t_min = 0;
     flag_timer1.t_max = 15;
 
-    // Setup initial camera mode and position
+    /*******************************************************************************************************/
+
+
+    // Camera
     scene.camera.camera_type = camera_control_spherical_coordinates;
     scene.camera.scale = 10.0f;
-    scene.camera.apply_rotation(0,0,0,1.2f);
+    scene.camera.apply_rotation(0,0,0,1.5);
+    setup_camera_path();
+
 
 
 }
 
-
-/** This function is called at each frame of the animation loop.
-    It is used to compute time-varying argument and perform data data drawing */
+/** ****** FRAME_DATA ******** **/
 
 void scene_exercise::frame_draw(std::map<std::string,GLuint>& shaders, scene_structure& scene, gui_structure& )
 {
-    set_gui();
+    set_gui(scene);
 
-    glEnable( GL_POLYGON_OFFSET_FILL ); // avoids z-fighting when displaying wireframe
 
+    if(gui_scene.camera_ownpath)
+        move_camera(scene, shaders);
+
+    /************************************
+    *          OBJETS STATIQUES         *
+    ************************************/
     displayTerrain(shaders,scene);
+    raccord.draw(shaders["mesh"], scene.camera); //dessous du terrain
+    sousEau.draw(shaders["mesh"], scene.camera); //dessous de l'eau
 
     displayTree(shaders,scene);
 
-    displaySkybox(shaders,scene);
+    displayRock(shaders,scene); 
 
-    displayRock(shaders,scene);
-
-    displayTree2(shaders,scene);
-
-    for (int k=0; k<N_bird; ++k) {
-        displayOiseau(k, birds[k], birdSet[k], shaders,scene);
-    }
-
-    for (int k=0; k<N_goat; ++k) {
-        displayGoat(k, goats[k], goatSets[k], shaders,scene);
-    }
-
-    for (int k=0; k<N_snake; ++k) {
-        displaySnake(k, snakes[k], snakeSets[k], shaders,scene);
-    }
-
-
-    displayCactus(shaders,scene);
-    //Dessin des objets simple
-    // ////******a decommenter****////
-    //statue.draw(shaders["mesh"], scene.camera);
+    statue.draw(shaders["mesh"], scene.camera);
 
     croc.translation("body")={croc_xy.x, croc_xy.y, z_eau(croc_xy, gui_scene) + 4.8};
     croc.draw(shaders["mesh"], scene.camera);
@@ -311,40 +327,133 @@ void scene_exercise::frame_draw(std::map<std::string,GLuint>& shaders, scene_str
     boat.draw(shaders["mesh"], scene.camera);
 
     displayMaison(shaders,scene);
+
     tente.draw(shaders["mesh"], scene.camera);
     chameau.draw(shaders["mesh"], scene.camera);
     pot.draw(shaders["mesh"], scene.camera);
     sauce.draw(shaders["mesh"], scene.camera);
-    displaySprite(shaders,scene);
-
 
     poteau.draw(shaders["mesh"], scene.camera);
 
-    displayArbreMort(shaders,scene);
+    tour.draw(shaders["mesh"], scene.camera);
+    boat4.draw(shaders["mesh"], scene.camera);
 
     for (vec3 p : cloud_position) {
         cloud.uniform_parameter.translation = p;
         cloud.draw(shaders["mesh"], scene.camera);
     }
 
+    //arbre mort - vegetation progressive
+    for (size_t k=0; k<N_veg_rock; ++k) {
+        if(!tree_type[k]) {
+            if(choixRock[k]>0.5){
+                rock2.uniform_parameter.translation = tree2_position[k];
+                rock2.draw(shaders["mesh"], scene.camera);}
+            else {
+                rock3.uniform_parameter.translation = tree2_position[k];
+                rock3.draw(shaders["mesh"], scene.camera);
+            }
+        }else {
+            if(choixCac[k]>0.5){
+                cactus.translation("tronc") = tree2_position[k] + vec3{0,0,0.5};
+                cactus.draw(shaders["mesh"], scene.camera);
+            }
+            else {
+                cactus2.uniform_parameter.translation = tree2_position[k] + vec3{0,0,0.5};
+                cactus2.draw(shaders["mesh"], scene.camera);
+            }}
+    }
+
+    /************************************
+    *          OBJETS ANIMES            *
+    ************************************/
+
+    for (int k=0; k<N_bird; ++k) { //oiseau
+        displayOiseau(k, birds[k], birdSet[k], shaders,scene);
+    }
+
+    for (int k=0; k<N_goat; ++k) { //chevre
+        displayGoat(goats[k], goatSets[k], shaders,scene);
+    }
+
+    for (int k=0; k<N_snake; ++k) { //serpent
+        displaySnake(k, snakes[k], snakeSets[k], shaders,scene);
+    }
+
+    update_boat(boat2Set, boat2_xy); //bateau en mvt
+    displayBoat(boat2, boat2Set, shaders,scene);
+
+    update_boat(boat3Set, boat3_xy);//bateau en mvt
+    displayBoat(boat3, boat3Set, shaders,scene);
+
     display_drapeau(shaders,scene);
 
+    displayPluie(shaders,scene);
 
 
-    raccord.draw(shaders["mesh"], scene.camera);
-
-
+    /************************************
+    *          OBJETS TRANSPARENT       *
+    ************************************/
 
     displayFlower(shaders,scene);
-
-    displaySousEau(shaders,scene);
+    displaySkybox(shaders,scene);
+    displaySprite(shaders,scene); //fumée annimé
     displayEau(shaders,scene);
     displayEau2(shaders,scene);
 
 
 
-
 }
+
+
+/** ***********************************             fonctions            *********************************** **/
+
+void scene_exercise::move_camera( scene_structure& scene , std::map<std::string,GLuint>& shaders)
+{
+    size_t N = camera_set.keyframe_time.size();
+
+    camera_set.animal_timer.update();
+    const float t = camera_set.animal_timer.t;
+    vec3 p = cardinal_spline_interpolation(camera_set, t);
+    const vec3 d = normalize( cardinal_spline_derivative_interpolation(camera_set, t) );
+
+    mat3 R = rotation_between_vector_mat3({1,0,0},d);
+
+    // up vector
+    const vec3 up = {0,0,1};
+    const vec3 up_proj = up-dot(up,d)*d;
+    const vec3 new_up = R*vec3{0,0,1};
+
+    const mat3 twist = rotation_between_vector_mat3(new_up,up_proj);
+    R = twist*R;
+
+    //scene.camera.orientation = R;
+    scene.camera.translation = p;
+    //scene.camera.apply_translation_in_screen_plane(p.x,p.y);
+
+    if(gui_scene.path){
+    // Draw birdSet.sphere at each keyframe position
+    for(size_t k=0; k<N; ++k)
+    {
+        const vec3& p_keyframe = camera_set.keyframe_position[k];
+        camera_set.sphere.uniform_parameter.translation = p_keyframe;
+        camera_set.sphere.draw(shaders["mesh"],scene.camera);
+    }
+
+
+    // Draw segments between each keyframe
+    for(size_t k=0; k<camera_set.keyframe_position.size()-1; ++k)
+    {
+        const vec3& pa = camera_set.keyframe_position[k];
+        const vec3& pb = camera_set.keyframe_position[k+1];
+
+        camera_set.segment_drawer.uniform_parameter.p1 = pa;
+        camera_set.segment_drawer.uniform_parameter.p2 = pb;
+        camera_set.segment_drawer.draw(shaders["segment_im"], scene.camera);
+    }
+    }
+}
+
 
 /************************************
 *             SETUPER               *
@@ -364,48 +473,6 @@ void scene_exercise::setup_sprite(vec3 p)
     fire_particle particle;
     particle.p = p;
     particles.push_back(particle);
-}
-
-//Sanke function
-
-
-static vec3 sinus_spline_interpolation(float t, float t0, float t1, float t2, float t3, const vec3& p0, const vec3& p1, const vec3& p2, const vec3& p3)
-{
-    float pi = 3.1415f;
-    float A = ((4*pi)/(t2-t1));
-    float B = -A*t1;
-    float amplitude = 0.1f;
-    vec3 oscillation = {0,amplitude*sin(A*t+B),0};
-    float costeta = (p2-p1).x/norm(p2-p1);
-    float sinteta = (p2-p1).y/norm(p2-p1);
-    mat3 rot {costeta,-sinteta,0,sinteta,costeta,0,0,0,0};
-
-    const float sigma = t2-t1;
-
-    const vec3 d1 = (p2-p0)/(t2-t0) * sigma;
-    const vec3 d2 = (p3-p1)/(t3-t1) * sigma;
-
-    const float s = (t-t1)/sigma;
-    const float s2 = s*s;
-    const float s3 = s2*s;
-
-    vec3 p = (2*s3-3*s2+1)*p1 + (s3-2*s2+s)*d1 + (-2*s3+3*s2)*p2 + (s3-s2)*d2;
-    p += rot*oscillation;
-
-    return p;
-}
-
-void add_pos(vec3 p, snake_tail& snake_tail ){
-    std ::vector<vcl::vec3>& tail = snake_tail.tail;
-    if( tail.size() < snake_tail.size_max )
-        tail.push_back(p);
-    else
-    {
-        for(size_t k=0; k<snake_tail.size_max-1; ++k)
-            tail[k] = tail[k+1];
-            tail[snake_tail.size_max-1] = p;
-    }
-
 }
 
 
@@ -584,32 +651,6 @@ void scene_exercise::update_flower_position()
     }
 }
 
-void scene_exercise::update_cactus_position()
-{
-
-    for(size_t k=0; k<N_cactus; ++k)
-    {
-        const float u = 0.025f+0.95f*distrib(generator);
-        const float v = 0.025f+0.95f*distrib(generator);
-        const float choix=distrib(generator);
-        const vec3 p = evaluate_terrain(u,v,gui_scene);
-        cactus_position.push_back(p);
-        choixCac.push_back(choix);
-    }
-}
-
-void scene_exercise::update_amort_position()
-{
-
-    for(size_t k=0; k<N_amort; ++k)
-    {
-        const float u = 0.025f+0.95f*distrib(generator);
-        const float v = 0.025f+0.95f*distrib(generator);
-        const vec3 p = evaluate_terrain(u,v,gui_scene);
-        amort_position.push_back(p);
-    }
-}
-
 void scene_exercise::update_rock_position()
 {
 
@@ -632,18 +673,47 @@ void scene_exercise::update_rock_size()
     }
 }
 
-void scene_exercise::update_tree2_position()
+void scene_exercise::update_vegetation_type()
 {
-
-    for(size_t k=0; k<N_tree2; ++k)
+    while(tree2_position.size()<N_veg_rock)
     {
         const float u = 0.025f+0.95f*distrib(generator);
         const float v = 0.025f+0.95f*distrib(generator);
         const vec3 p = evaluate_terrain(u,v,gui_scene);
-        tree2_position.push_back(p);
+        if(!onGround(p) && !onGround2(p))
+            tree2_position.push_back(p);
     }
+
+    for(size_t k=0; k<N_veg_rock; ++k)
+    { //choix de cactus ou gros caillou
+        vec3 p =tree2_position[k];
+        const float d= std::sqrt(p.x*p.x + p.y*p.y);
+        const float prob = -d/80.0f  + 1.0f;
+        std::bernoulli_distribution distribution(prob);
+        bool a=distribution(generator);
+        tree_type.push_back(a);
+    }
+
+    choixCac.resize(N_veg_rock);
+    choixRock.resize(N_veg_rock);
+
+    for(size_t k=0; k<N_veg_rock; ++k)
+    {
+        if(!tree_type[k]){ //choix tu type de gros caillou
+            choixRock[k] = distrib(generator);
+            std::cout<<choixRock[k]<<std::endl;}
+        if(tree_type[k]){//choix du type de cactus
+            choixCac[k] = distrib(generator);
+            std::cout<<choixCac[k]<<std::endl;}
+    }
+
+
 }
 
+void scene_exercise::update_boat(animal_setting& Set, vec2 p)
+{
+    Set.keyframe_position = boat_path(gui_scene, p, Set.N, 4.0);
+}
 
 /************************************
 *           DISPLAYER               *
@@ -690,8 +760,6 @@ void scene_exercise::displayMaison(std::map<std::string, GLuint> &shaders, scene
 void scene_exercise::displaySprite(std::map<std::string,GLuint>& shaders, scene_structure& scene)
 {
     const float dt = gui_scene.fire_timer.update();
-    //std::cout<<"t : "<<t<<std::endl;
-    //std::cout<<"->dt : "<<dt<<std::endl;
 
     const bool is_new_particle = gui_scene.fire_timer.event;
 
@@ -791,7 +859,6 @@ void scene_exercise::displaySprite(std::map<std::string,GLuint>& shaders, scene_
     glBindTexture(GL_TEXTURE_2D,scene.texture_white);
 }
 
-
 void scene_exercise::displayEau(std::map<std::string,GLuint>& shaders, scene_structure& scene){
 
     // Display terrain *************************************
@@ -813,23 +880,6 @@ void scene_exercise::displayEau(std::map<std::string,GLuint>& shaders, scene_str
 
     if(gui_scene.wireframe){
         eau.draw(shaders["wireframe"], scene.camera);
-    }
-    //End terrain-------------------------------------------
-}
-
-void scene_exercise::displaySousEau(std::map<std::string,GLuint>& shaders, scene_structure& scene){
-
-    // Display terrain *************************************
-    glPolygonOffset( 1.0, 1.0 );
-    //glBindTexture(GL_TEXTURE_2D, terrain_tex);
-
-    sousEau.draw(shaders["mesh"], scene.camera);
-
-    //  Avoids to use the previous texture for another object
-    glBindTexture(GL_TEXTURE_2D, scene.texture_white);
-
-    if(gui_scene.wireframe){
-        sousEau.draw(shaders["wireframe"], scene.camera);
     }
     //End terrain-------------------------------------------
 }
@@ -879,241 +929,122 @@ void scene_exercise::displaySkybox(std::map<std::string,GLuint>& shaders, scene_
 
 }
 
-void scene_exercise::displayOiseau(int k, vcl::mesh_drawable_hierarchy& oiseau, animal_setting& Set, std::map<std::string,GLuint>& shaders, scene_structure& scene){
+void scene_exercise::displayOiseau(int k , vcl::mesh_drawable_hierarchy& oiseau, animal_setting& Set, std::map<std::string,GLuint>& shaders, scene_structure& scene)
+{
     Set.animal_timer.update();
     const float t = Set.animal_timer.t;
+    vec3 p = cardinal_spline_interpolation(Set, t);
+    p = rotateFrom( p , {0,0,1} , bird_rotation[k]); //randomize trajectory direction
+    const vec3 d = normalize( rotateFrom (cardinal_spline_derivative_interpolation(Set, t), {0,0,1}, bird_rotation[k]) );
 
+    mat3 R = rotation_between_vector_mat3({1,0,0},d);
 
+    // up vector
+    const vec3 up = {0,0,1};
+    const vec3 up_proj = up-dot(up,d)*d;
+    const vec3 new_up = R*vec3{0,0,1};
 
-    // ********************************************* //
-    // Compute interpolated position at time t
-    // ********************************************* //
-    const size_t idx = index_at_value(t, Set.keyframe_time);
+    const mat3 twist = rotation_between_vector_mat3(new_up,up_proj);
+    R = twist*R;
 
-    // Assume a closed curve trajectory
-    const size_t N = Set.keyframe_time.size();
-
-
-
-    // Linear interpolation
-    // Linear interpolation
-    const float t_1 = Set.keyframe_time[idx-1];
-    const float t0 = Set.keyframe_time[idx];
-    const float t1 = Set.keyframe_time[idx+1];
-    const float t2 = Set.keyframe_time[idx+2];
-
-    const vec3& p_1 = Set.keyframe_position[idx-1];
-    const vec3& p0 = Set.keyframe_position[idx];
-    const vec3& p1 = Set.keyframe_position[idx+1];
-    const vec3& p2 = Set.keyframe_position[idx+2];
-
-
-    //const vec3 p = linear_interpolation(t,t1,t2,p1,p2);
-    vec3 p = cardinal_spline_interpolation(t,t_1,t0,t1,t2,p_1,p0,p1,p2);
-    //p = rotateFrom(p, {0,0,1}, bird_rotation[k]);
-    Set.trajectory.add_point(p);
-
-    //Draw movement
-    //const float t = timer.t;
-
-    //oiseau.rotation("body") = rotation_from_axis_angle_mat3({1,0,0}, 0.1*std::sin(2*3.14f*t) );
-
+    //wings move
     oiseau.rotation("arm_top_left") = rotation_from_axis_angle_mat3({1,0,0}, std::sin(2*3.14f*(t-0.4f)) );
-
     oiseau.rotation("arm_top_right") = rotation_from_axis_angle_mat3({-1,0,0}, std::sin(2*3.14f*(t-0.4f)) );
 
 
     // Draw current position
     oiseau.translation("body") = p ;
-
-    //il faisait des rotations bizarre
-    vec3 ro = p-birdP_init[k];
-    oiseau.rotation("body") = rotation_between_vector_mat3({0,1.0f,0},ro)*rotation_from_axis_angle_mat3({0,0,1},3.14/2);
-
-
-    birdP_init[k]=p;
+    oiseau.rotation("body") = R;
     oiseau.draw(shaders["mesh"],scene.camera);
-
-
-
-    if(gui_scene.path){
-    // Draw birdSet.sphere at each keyframe position
-    for(size_t k=0; k<N; ++k)
-    {
-        const vec3& p_keyframe = Set.keyframe_position[k];
-        Set.sphere.uniform_parameter.translation = p_keyframe;
-        Set.sphere.draw(shaders["mesh"],scene.camera);
-    }
-
-
-    // Draw segments between each keyframe
-    for(size_t k=0; k<Set.keyframe_position.size()-1; ++k)
-    {
-        const vec3& pa = Set.keyframe_position[k];
-        const vec3& pb = Set.keyframe_position[k+1];
-
-        Set.segment_drawer.uniform_parameter.p1 = pa;
-        Set.segment_drawer.uniform_parameter.p2 = pb;
-        Set.segment_drawer.draw(shaders["segment_im"], scene.camera);
-    }
-
-    // Draw moving point trajectory
-    Set.trajectory.draw(shaders["curve"], scene.camera);}
 
 }
 
-void scene_exercise::displayGoat(int k, vcl::mesh_drawable_hierarchy& goat, animal_setting& Set, std::map<std::string,GLuint>& shaders, scene_structure& scene){
+void scene_exercise::displayGoat(vcl::mesh_drawable_hierarchy& goat, animal_setting& Set, std::map<std::string,GLuint>& shaders, scene_structure& scene)
+{
+
     Set.animal_timer.update();
     const float t = Set.animal_timer.t;
+    vec3 p = cardinal_spline_interpolation(Set, t);
+    const vec3 d = normalize( cardinal_spline_derivative_interpolation(Set, t) );
 
+    mat3 R = rotation_between_vector_mat3({1,0,0},d);
 
+    // up vector
+    const vec3 up = {0,0,1};
+    const vec3 up_proj = up-dot(up,d)*d;
+    const vec3 new_up = R*vec3{0,0,1};
 
-    // ********************************************* //
-    // Compute interpolated position at time t
-    // ********************************************* //
-    const size_t idx = index_at_value(t, Set.keyframe_time);
-
-    // Assume a closed curve trajectory
-    const size_t N = Set.keyframe_time.size();
-
-
-
-    // Linear interpolation
-    // Linear interpolation
-        const float t_1 = Set.keyframe_time[idx-1];
-        const float t0 = Set.keyframe_time[idx];
-        const float t1 = Set.keyframe_time[idx+1];
-        const float t2 = Set.keyframe_time[idx+2];
-
-        const vec3& p_1 = Set.keyframe_position[idx-1];
-        const vec3& p0 = Set.keyframe_position[idx];
-        const vec3& p1 = Set.keyframe_position[idx+1];
-        const vec3& p2 = Set.keyframe_position[idx+2];
-
-
-    //const vec3 p = linear_interpolation(t,t1,t2,p1,p2);
-    const vec3 p = cardinal_spline_interpolation(t,t_1,t0,t1,t2,p_1,p0,p1,p2);
-    Set.trajectory.add_point(p);
-
-    //Draw movement
-    //const float t = timer.t;
-
-    //goat.rotation("body") = rotation_from_axis_angle_mat3({1,0,0}, 0.1*std::sin(2*3.14f*t) );
-
+    const mat3 twist = rotation_between_vector_mat3(new_up,up_proj);
+    R = twist*R;
 
     // Draw current position
     goat.translation("body") = p;
-    goat.rotation("body") = rotation_between_vector_mat3({-1,-1.0f,-1},p-goatP_inits[k]);//*rotation_from_axis_angle_mat3({0,0,1},3.14/2);
-
-    goatP_inits[k]=p;
+    goat.rotation("body") = R * rotation_from_axis_angle_mat3({0,0,1}, M_PI);
     goat.draw(shaders["mesh"],scene.camera);
-
-
-
-    if(gui_scene.path){
-    // Draw birdSet.sphere at each keyframe position
-    for(size_t k=0; k<N; ++k)
-    {
-        const vec3& p_keyframe = Set.keyframe_position[k];
-        Set.sphere.uniform_parameter.translation = p_keyframe;
-        Set.sphere.draw(shaders["mesh"],scene.camera);
-    }
-
-
-    // Draw segments between each keyframe
-    for(size_t k=0; k<Set.keyframe_position.size()-1; ++k)
-    {
-        const vec3& pa = Set.keyframe_position[k];
-        const vec3& pb = Set.keyframe_position[k+1];
-
-        Set.segment_drawer.uniform_parameter.p1 = pa;
-        Set.segment_drawer.uniform_parameter.p2 = pb;
-        Set.segment_drawer.draw(shaders["segment_im"], scene.camera);
-    }
-
-    // Draw moving point trajectory
-    Set.trajectory.draw(shaders["curve"], scene.camera);
-
-    // Draw selected oiseau in red
-    if( Set.picked_object!=-1 )
-    {
-        const vec3& p_keyframe = Set.keyframe_position[Set.picked_object];
-        Set.sphere.uniform_parameter.color = vec3(1,0,0);
-        Set.sphere.uniform_parameter.scaling = 0.06f;
-        Set.sphere.uniform_parameter.translation = p_keyframe;
-        Set.sphere.draw(shaders["mesh"],scene.camera);
-        Set.sphere.uniform_parameter.color = vec3(1,1,1);
-        Set.sphere.uniform_parameter.scaling = 0.05f;
-    }
-    }
 }
 
 void scene_exercise::displaySnake(int k, vcl::mesh_drawable_hierarchy& snake, animal_setting& Set, std::map<std::string,GLuint>& shaders, scene_structure& scene){
+
     Set.animal_timer.update();
     const float t = Set.animal_timer.t;
+    const vec3 p = sinus_spline_interpolation(Set, t);
+    const vec3 d = normalize( cardinal_spline_derivative_interpolation(Set, t) );
 
+    mat3 R = rotation_between_vector_mat3({1,0,0},d);
 
-    // ********************************************* //
-    // Compute interpolated position at time t
-    // ********************************************* //
-    const size_t idx = index_at_value(t, Set.keyframe_time);
+    // up vector
+    const vec3 up = {0,0,1};
+    const vec3 up_proj = up-dot(up,d)*d;
+    const vec3 new_up = R*vec3{0,0,1};
 
-    // Assume a closed curve trajectory
-    const size_t N = Set.keyframe_time.size();
+    const mat3 twist = rotation_between_vector_mat3(new_up,up_proj);
+    R = twist*R;
 
-
-
-    // Linear interpolation
-    const float t0 = Set.keyframe_time[idx-1];
-    const float t1 = Set.keyframe_time[idx];
-    const float t2 = Set.keyframe_time[idx+1];
-    const float t3 = Set.keyframe_time[idx+2];
-
-    const vec3& p0 = Set.keyframe_position[idx-1];
-    const vec3& p1 = Set.keyframe_position[idx];
-    const vec3& p2 = Set.keyframe_position[idx+1];
-    const vec3& p3 = Set.keyframe_position[idx+2];
-
-   const vec3 p = sinus_spline_interpolation(t,t0,t1,t2,t3,p0,p1,p2,p3);
-
-
-    // Draw current position
-    vec3 ro = p-snakeP_inits[k];
-    snake.rotation("head") = rotation_between_vector_mat3({0,1.0f,0},ro);
-    snake.translation("head")= p+vec3(0,0.04,-0.06);
-
+    snake.translation("head")= p - 0.1*d - vec3(0,0,0.08);
+    snake.rotation("head") = R * rotation_from_axis_angle_mat3({0,0,-1}, M_PI/2);
     snake.draw(shaders["mesh"],scene.camera);
-
-    snakeP_inits[k] = p;
 
     //rajouter les positions à la queue du serpent
     add_pos(p, queue[k]);
 
-    std::cout<<"debut queue"<<std::endl;
     //draw tale of snake
 
-        for (size_t i=0;i<queue[k].tail.size();i++) {
-            std::cout<<queue[k].tail.size()<<std::endl;
-            vec3 p11=queue[k].tail[i];
-            snake_sphere.uniform_parameter.translation = p11;
-            snake_sphere.uniform_parameter.scaling = 0.1/(1+exp(-0.015f*i));
-            glBindTexture(GL_TEXTURE_2D, texture_snake);
-            snake_sphere.draw(shaders["mesh"],scene.camera);
-            glBindTexture(GL_TEXTURE_2D, scene.texture_white);
-        }
-
-    std::cout<<"fin queue"<<std::endl;
-
-    // Draw segments between each keyframe
-    for(size_t k=0; k<Set.keyframe_position.size()-1; ++k)
-    {
-        const vec3& pa = Set.keyframe_position[k];
-        const vec3& pb = Set.keyframe_position[k+1];
-
-        Set.segment_drawer.uniform_parameter.p1 = pa;
-        Set.segment_drawer.uniform_parameter.p2 = pb;
-        Set.segment_drawer.draw(shaders["segment_im"], scene.camera);
+    for (size_t i=0;i<queue[k].tail.size();i++) {
+        vec3 p11=queue[k].tail[i];
+        snake_sphere.uniform_parameter.translation = p11;
+        snake_sphere.uniform_parameter.scaling = 0.1/(1+exp(-0.015f*i));
+        glBindTexture(GL_TEXTURE_2D, texture_snake);
+        snake_sphere.draw(shaders["mesh"],scene.camera);
+        glBindTexture(GL_TEXTURE_2D, scene.texture_white);
     }
+
+
+}
+
+void scene_exercise::displayBoat(vcl::mesh_drawable_hierarchy& boat, animal_setting& Set, std::map<std::string,GLuint>& shaders, scene_structure& scene)
+{
+    Set.animal_timer.update();
+    const float t = Set.animal_timer.t;
+    vec3 p = cardinal_spline_interpolation(Set, t);
+    const vec3 d = normalize( cardinal_spline_derivative_interpolation(Set, t) );
+
+    Set.trajectory.add_point(p);
+
+    mat3 R = rotation_between_vector_mat3({0,1,0},d);
+
+    // up vector
+    const vec3 up = {0,0,1};
+    const vec3 up_proj = up-dot(up,d)*d;
+    const vec3 new_up = R*vec3{0,0,1};
+
+    const mat3 twist = rotation_between_vector_mat3(new_up,up_proj);
+    R = twist*R;
+
+
+    // Draw current position
+    boat.translation("body") = p ;
+    boat.rotation("body") = R ;
+    boat.draw(shaders["mesh"],scene.camera);
 
 
 }
@@ -1165,44 +1096,6 @@ void scene_exercise::displayFlower(std::map<std::string,GLuint>& shaders, scene_
 
 }
 
-void scene_exercise::displayCactus(std::map<std::string,GLuint>& shaders, scene_structure& scene)
-{
-    if(!gui_scene.cactus)
-        return ;
-
-    const size_t N_grass = cactus_position.size();
-
-    for(size_t k=0; k<N_grass; ++k)
-    {
-        const vec3& p = cactus_position[k];
-        if(!onGround(p)){
-            if(choixCac[k]>0.5){
-            cactus.translation("tronc") = p + vec3{0,0,0.5};
-            glPolygonOffset( 1.0, 1.0 );
-            cactus.draw(shaders["mesh"], scene.camera);}
-            else{
-                cac2.uniform_parameter.translation=p;
-                cac2.draw(shaders["mesh"], scene.camera);
-            }
-        }
-    }
-
-
-    if( gui_scene.wireframe ){
-        for(size_t k=0; k<N_grass; ++k)
-        {
-            const vec3& p = flower_position[k];
-            if(!onGround(p)){
-            cactus.translation("tronc") = p;
-            glPolygonOffset( 1.0, 1.0 );
-            cactus.draw(shaders["wireframe"], scene.camera);
-            }
-        }
-    }
-
-
-}
-
 void scene_exercise::displayRock(std::map<std::string, GLuint> &shaders, scene_structure &scene)
 {
     if(!gui_scene.rock)
@@ -1247,71 +1140,75 @@ void scene_exercise::displayRock(std::map<std::string, GLuint> &shaders, scene_s
 
 }
 
-void scene_exercise::displayArbreMort(std::map<std::string, GLuint> &shaders, scene_structure &scene)
-{
 
-    const size_t N_amort = amort_position.size();
+void scene_exercise::displayPluie(std::map<std::string, GLuint> &shaders, scene_structure &scene){
 
-    for(size_t k=0; k<N_amort; ++k)
-    {
-        const vec3& p = amort_position[k];
-        if(!onGround(p)){
-            arbremort.uniform_parameter.translation = p + vec3{0,0,-0.2};
+    goute_timer.update();
+    pluie_timer.update();
+    const float t_current = goute_timer.t;
 
-            glPolygonOffset( 1.0, 1.0 );
-            // Display amort *************************************
-            glPolygonOffset( 1.0, 1.0 );
-            glBindTexture(GL_TEXTURE_2D, arbremortTex);
+    // Emission of new particle if needed
+    const bool is_new_pluie = pluie_timer.event;
+    const bool is_new_particle = goute_timer.event;
 
-            arbremort.draw(shaders["mesh"], scene.camera);
-
-            //  Avoids to use the previous texture for another object
-            glBindTexture(GL_TEXTURE_2D, scene.texture_white);
-
-        }
-    }
-
-
-
-}
-
-void scene_exercise::displayTree2(std::map<std::string, GLuint> &shaders, scene_structure &scene)
-{
-
-    const size_t N_grass = tree2_position.size();
-
-    for(size_t k=0; k<N_grass; ++k)
-    {
-        const vec3& p = tree2_position[k];
-        if(!onGround(p)){
-            tree2.translation("tronc")= p + vec3{0,0,0.05};
-            glPolygonOffset( 1.0, 1.0 );
-            tree2.draw(shaders["mesh"], scene.camera);
-        }
-    }
-
-
-    if( gui_scene.wireframe ){
-        for(size_t k=0; k<N_grass; ++k)
-        {
-            const vec3& p = tree2_position[k];
-            if(!onGround(p)){
-            tree2.translation("root")= p;
-            glPolygonOffset( 1.0, 1.0 );
-            tree2.draw(shaders["wireframe"], scene.camera);
+    if(is_new_pluie){//gere les transision entre deux pluie
+        cond=!cond;
+        if(!cond){
+            for (int i = 0; i < 3; ++i) {
+                size_t k = distrib(generator)*cloud_position.size(); //choix les prochains nuages
+                pluie_position[i]=cloud_position[k];
             }
         }
     }
 
+    if( cond )
+    {
+    if( is_new_particle )
+    {
+        for (vec3 p : pluie_position) {
 
+            const float dx=1;
+            particle_structure new_particle;
+            new_particle.t0 = t_current;
+            new_particle.p0 = p - vec3(dx,0,0);
+
+            // Initial speed is random. (x,z) components are uniformly distributed along a circle.
+            const float theta = 2*float(M_PI)*distrib(generator);
+            new_particle.v0 = vec3( std::cos(theta), std::sin(theta), 1.0f);
+
+            particle_structure new_particle2;
+            new_particle2.t0 = t_current;
+            new_particle2.p0 = p + vec3(dx,0,0);
+
+            // Initial speed is random. (x,z) components are uniformly distributed along a circle.
+            const float theta2 = 2*float(M_PI)*distrib(generator);
+            new_particle2.v0 = vec3( std::cos(theta2), std::sin(theta2), 1.0f);
+
+            goute_particules.push_back(new_particle); goute_particules.push_back(new_particle2);
+        }
+    }}
+
+    // Compute position of particles at current time
+    const vec3 g = {0,0,-9.81f};
+    for(particle_structure& particle : goute_particules)
+    {
+        const float t = t_current-particle.t0; // local time of the current particle since its creation
+        const vec3 p = g*t*t/2.0f + particle.v0*t + particle.p0;
+
+        goute.uniform_parameter.translation = p;
+        goute.draw(shaders["mesh"], scene.camera);
+    }
+
+    // Remove particles that have exceeded they lifetime
+    for(auto it = goute_particules.begin(); it!=goute_particules.end(); ++it)
+        if( t_current-it->t0 > 2)
+            it = goute_particules.erase(it);
 }
+
 
 /************************************
 *           DRAPEAU SIMULATION      *
 ************************************/
-
-
-// Fill value of force applied on each particle
 
 vec3 spring_force(const vec3& pi, const vec3& pj, float L0, float K)
 {
@@ -1368,11 +1265,6 @@ void scene_exercise::compute_forces(float h)
 
 }
 
-
-
-
-// Initialize the geometrical model
-// (this function can be called several times by the user)
 void scene_exercise::initialize()
 {
     // Number of samples of the model (total number of particles is N_cloth x N_cloth)
@@ -1450,12 +1342,8 @@ void scene_exercise::display_drapeau(std::map<std::string,GLuint>& shaders, scen
         cloth.draw(shaders["wireframe_quads"],scene.camera);
     }
 
-    std::cout<<flag_timer.scale<<std::endl;
-    std::cout<<user_parameters.wind<<std::endl<<std::endl;
 
 }
-
-
 
 void scene_exercise::hard_constraints()
 {
@@ -1481,6 +1369,7 @@ void scene_exercise::numerical_integration(float h)
 }
 
 
+
 /************************************
 *             CREATER               *
 ************************************/
@@ -1500,14 +1389,15 @@ void scene_exercise::createTreePos(){
 
 vcl::mesh create_skybox()
 {
-    const vec3 p000 = {-1,-1,-1};
-    const vec3 p001 = {-1,-1, 1};
-    const vec3 p010 = {-1, 1,-1};
-    const vec3 p011 = {-1, 1, 1};
-    const vec3 p100 = { 1,-1,-1};
-    const vec3 p101 = { 1,-1, 1};
-    const vec3 p110 = { 1, 1,-1};
-    const vec3 p111 = { 1, 1, 1};
+    const float a= 2;
+    const vec3 p000 = {-a,-a,-a};
+    const vec3 p001 = {-a,-a, a};
+    const vec3 p010 = {-a, a,-a};
+    const vec3 p011 = {-a, a, a};
+    const vec3 p100 = { a,-a,-a};
+    const vec3 p101 = { a,-a, a};
+    const vec3 p110 = { a, a,-a};
+    const vec3 p111 = { a, a, a};
 
     mesh skybox;
 
@@ -1577,106 +1467,121 @@ bool onGround(vec3 p){
     return true;
 }
 
-void scene_exercise::set_gui()
+bool onGround2(vec3 p){
+    const float x = p.x;
+    const float y = p.y;
+    const float norm= sqrt(pow(std::max(x-40,0.0f),2)+pow(y+45, 2));
+
+    float d= std::max(norm-radious,0.0f)/1.5;
+    d=1-exp(-pow(d,2));
+    d=(d>1)?1:d;
+    if(d!=0) return false;
+    return true;
+
+}
+
+void add_pos(vec3 p, snake_tail& snake_tail ){
+    std ::vector<vcl::vec3>& tail = snake_tail.tail;
+    if( tail.size() < snake_tail.size_max )
+        tail.push_back(p);
+    else
+    {
+        for(size_t k=0; k<snake_tail.size_max-1; ++k)
+            tail[k] = tail[k+1];
+            tail[snake_tail.size_max-1] = p;
+    }
+
+}
+void scene_exercise::setup_camera_path()
+{
+    camera_set.N=100;
+    camera_set.keyframe_position = camera_path(camera_set.N, 10 , 20);
+    camera_set.keyframe_time = create_keyTime(camera_set.N);
+
+    // Set timer bounds
+    //  To ease spline interpolation of a closed curve time \in [t_1,t_{N-2}]
+    camera_set.animal_timer.t_min = camera_set.keyframe_time[1];
+    camera_set.animal_timer.t_max = camera_set.keyframe_time[camera_set.keyframe_time.size()-2];
+    camera_set.animal_timer.t = camera_set.animal_timer.t_min;
+
+    // Prepare the visual elements
+    camera_set.surface = vcl::mesh_primitive_sphere();
+    camera_set.surface.uniform_parameter.color   = {0,0,1};
+    camera_set.surface.uniform_parameter.scaling = 0.08f;
+
+    camera_set.sphere = vcl::mesh_primitive_sphere();
+    camera_set.sphere.uniform_parameter.color = {1,1,1};
+    camera_set.sphere.uniform_parameter.scaling = 0.05f;
+
+    camera_set.segment_drawer.init();
+
+    camera_set.animal_timer.scale=1.5f;
+
+}
+
+void scene_exercise::update_camera(int i,scene_structure& scene){
+    if(i==0){ //drapeau view
+        scene.camera.translation = {16.470531, -10.785789, 9.624680};
+        scene.camera.orientation = {0.519099 ,-0.155370 ,0.840474, 0.854714 ,0.094362, -0.510450 , 0.000000 ,0.983339 ,0.181780};
+        scene.camera.scale = 91.8113;
+    }
+
+    if(i==1){ //snake view
+        scene.camera.translation = {-12.4442, -12.0482, 3.20195};
+        scene.camera.orientation = {0.637392 ,-0.317567, 0.702056 , 0.770540 ,0.262692, -0.580742 , 0.000000 , 0.911123, 0.412136 };
+        scene.camera.scale = 48.9877;
+    }
+
+    if(i==2){ //fire view
+        scene.camera.translation = {-12.4442, -12.0482, 3.20195};
+        scene.camera.orientation = {0.695585, 0.130598, -0.706474, -0.718444, 0.126443, -0.683996,  0, 0.983339, 0.18178};
+        scene.camera.scale = 17.6145;
+        scene.camera.spherical_coordinates= {-0.989062, 0.528};
+
+    }
+
+}
+
+std::vector<vec3> camera_path(unsigned int N, const float R, float height){
+    std::vector<vec3> path;
+    float angle=0, toAdd=2*M_PI/(N-1);
+    for (int i=0; i<N+2 ; i++) {
+        path.push_back({R*std::cos(angle),R*std::sin(angle),height});
+        angle+=toAdd;
+    }
+
+    return path;
+}
+
+
+/************************************
+*              gui and mouse        *
+************************************/
+void scene_exercise::set_gui(scene_structure& scene)
 {
     ImGui::Checkbox("Wireframe", &gui_scene.wireframe);
     ImGui::Checkbox("Skybox", &gui_scene.skybox);
     ImGui::Checkbox("Path", &gui_scene.path);
 
-    //Goat
     ImGui::Separator();
-    ImGui::Text("Goat parameters");
-    const float goatTime_scale_min = 1.f;
-    const float goatTime_scale_max = 3.f;
-    ImGui::SliderFloat("Time scale", &goatSets[0].animal_timer.scale, goatTime_scale_min, goatTime_scale_max);
+    ImGui::Text("Camera");
+    ImGui::Checkbox("camera own path", &gui_scene.camera_ownpath);
+    if( ImGui::Button("flag wiew") ) update_camera(0, scene);
+    if( ImGui::Button("snake wiew") ) update_camera(1, scene);
+    if( ImGui::Button("sprite wiew") ) update_camera(2, scene);
 
+    if( ImGui::Button("camera position") )
+    {
+    std::cout<<"camera position : {"<<scene.camera.camera_position().x<< ", "<<scene.camera.camera_position().y << ", "<<scene.camera.camera_position().z<<"}"<<std::endl;
 
-    //Eau
-    ImGui::Separator();
-    ImGui::Text("Water parameters");
+    std::cout<<"camera matrix : {"<<scene.camera.orientation[0];
+    for (int i = 0; i < 3*3; ++i) std::cout<<", "<<scene.camera.orientation[i];
+    std::cout<<"}"<<std::endl;
 
+    std::cout<<"scale : "<< scene.camera.scale<<std::endl;
+    std::cout<<"spherical coord : {"<<scene.camera.spherical_coordinates.x << ", "<< scene.camera.spherical_coordinates.y << "}"<<std::endl<<std::endl;
+    }
 
-
-    float eau_height_min = 0.01f;
-    float eau_height_max = 2.0f;
-    if( ImGui::SliderScalar("Height eau", ImGuiDataType_Float, &gui_scene.eau_height, &eau_height_min, &eau_height_max) )
-        update_eau();
-    float eau_scaling_min = 0.01f;
-    float eau_scaling_max = 10.0f;
-    if( ImGui::SliderScalar("(u,v) Scaling eau ", ImGuiDataType_Float, &gui_scene.eau_scaling, &eau_scaling_min, &eau_scaling_max) )
-        update_eau();
-
-    int octave_min = 1;
-    int octave_max = 10;
-    if( ImGui::SliderScalar("Octave eau", ImGuiDataType_S32, &gui_scene.eau_octave, &octave_min, &octave_max) )
-        update_eau();
-
-    float persistency_min = 0.1f;
-    float persistency_max = 0.9f;
-    if( ImGui::SliderScalar("Persistency eau", ImGuiDataType_Float, &gui_scene.eau_persistency, &persistency_min, &persistency_max) )
-        update_eau();
-
-    //Eau
-    ImGui::Separator();
-    ImGui::Text("Water2 parameters");
-
-    const float eau2Time_scale_min = 0.1f;
-    const float eau2Time_scale_max = 1.f;
-    ImGui::SliderFloat("Time", &gui_scene.eau2_time.t, gui_scene.eau2_time.t_min, gui_scene.eau2_time.t_max);
-
-    if(ImGui::SliderFloat("Time scale eau2", &gui_scene.eau2_time.scale, eau2Time_scale_min, eau2Time_scale_max))
-        update_eau2();
-    if( ImGui::SliderScalar("Height eau2", ImGuiDataType_Float, &gui_scene.eau2_height, &eau_height_min, &eau_height_max) )
-        update_eau2();
-    if( ImGui::SliderScalar("(u,v) Scaling eau2 ", ImGuiDataType_Float, &gui_scene.eau2_scaling, &eau_scaling_min, &eau_scaling_max) )
-        update_eau2();
-    if( ImGui::SliderScalar("Octave eau2", ImGuiDataType_S32, &gui_scene.eau2_octave, &octave_min, &octave_max) )
-        update_eau2();
-    if( ImGui::SliderScalar("Persistency eau2", ImGuiDataType_Float, &gui_scene.eau2_persistency, &persistency_min, &persistency_max) )
-        update_eau2();
-
-//    //FOR BIRD
-//    ImGui::Separator();
-//    ImGui::Text("Bird parameters");
-
-//    ImGui::SliderFloat("Time", &birdSet.animal_timer.t, birdSet.animal_timer.t_min, birdSet.animal_timer.t_max);
-
-//    const float time_scale_min = 0.1f;
-//    const float time_scale_max = 3.0f;
-//    ImGui::SliderFloat("Time scale2", &birdSet.animal_timer.scale, time_scale_min, time_scale_max);
-
-//    float path_height_min = 0.01f;
-//    float path_height_max = 8.0f;
-//    if( ImGui::SliderScalar("Height path", ImGuiDataType_Float, &gui_scene.path_height, &path_height_min, &path_height_max) )
-//        update_path(birdSet,gui_scene);
-
-//    float path_scaling_min = 0.01f;
-//    float path_scaling_max = 10.0f;
-//    if( ImGui::SliderScalar("(u,v) Scaling path ", ImGuiDataType_Float, &gui_scene.path_scaling, &path_scaling_min, &path_scaling_max) )
-//        update_path(birdSet,gui_scene);
-
-//    int Boctave_min = 1;
-//    int Boctave_max = 10;
-//    if( ImGui::SliderScalar("Octave path", ImGuiDataType_S32, &gui_scene.path_octave, &Boctave_min, &Boctave_max) )
-//        update_path(birdSet,gui_scene);
-
-//    float Bpersistency_min = 0.1f;
-//    float Bpersistency_max = 0.9f;
-//    if( ImGui::SliderScalar("Persistency path", ImGuiDataType_Float, &gui_scene.path_persistency, &Bpersistency_min, &Bpersistency_max) )
-//        update_path(birdSet,gui_scene);
-
-//    if( ImGui::Button("Print Keyframe") )
-//    {
-//        std::cout<<"birdSet.keyframe_position={";
-//        for(size_t k=0; k<birdSet.keyframe_position.size(); ++k)
-//        {
-//            const vec3& p = birdSet.keyframe_position[k];
-//            std::cout<< "{"<<p.x<<"f,"<<p.y<<"f,"<<p.z<<"f}";
-//            if(k<birdSet.keyframe_position.size()-1)
-//                std::cout<<", ";
-//        }
-//        std::cout<<"}"<<std::endl;
-//    }
 
     ImGui::Separator();
     ImGui::Text("flag parameters");
@@ -1712,16 +1617,8 @@ void scene_exercise::set_gui()
     ImGui::SliderScalar("Time period", ImGuiDataType_Float, &gui_scene.fire_timer.periodic_event_time_step, &firescale_min, &firescale_max, "%.2f s");
 
 
-    //for plants
-    ImGui::Separator();
-    ImGui::Text("Plants parameters");
-    ImGui::Checkbox("Flower", &gui_scene.flower);
-    ImGui::Checkbox("cactus", &gui_scene.cactus);
-    ImGui::Checkbox("flower_Texture", &gui_scene.texture);
-    ImGui::Checkbox("rock", &gui_scene.rock);
 
 }
-
 
 void scene_exercise::mouse_click(scene_structure& scene, GLFWwindow* window, int , int action, int )
 {

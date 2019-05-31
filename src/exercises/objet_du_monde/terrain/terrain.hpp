@@ -4,6 +4,7 @@
 
 //Terrain
 vcl::mesh create_terrain(const gui_scene_structure& gui_scene);
+vcl::mesh create_terrain2();
 float evaluate_terrain_z(float u, float v, const gui_scene_structure& gui_scene);
 float evaluate_terrain2_z(float x, float y, const gui_scene_structure& gui_scene);
 vcl::vec3 evaluate_terrain(float u, float v,const gui_scene_structure& gui_scene);
